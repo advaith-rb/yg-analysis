@@ -42,6 +42,12 @@ df["repelled"] = ((df["follow_unbranded"] == 1) & (df["follow_branded"] == 0)).a
 df["stayed_likely"] = ((df["follow_unbranded"] == 1) & (df["follow_branded"] == 1)).astype(int)
 df["stayed_unlikely"] = ((df["follow_unbranded"] == 0) & (df["follow_branded"] == 0)).astype(int)
 
+# Categorical switcher label for cross-tabs
+df["switcher_cat"] = "stayed_unlikely"
+df.loc[df["converter"] == 1, "switcher_cat"] = "converter"
+df.loc[df["repelled"] == 1, "switcher_cat"] = "repelled"
+df.loc[df["stayed_likely"] == 1, "switcher_cat"] = "stayed_likely"
+
 # ---------------------------------------------------------------------------
 # Q1 IDENTITY VARIABLES
 # ---------------------------------------------------------------------------
@@ -272,3 +278,142 @@ for seg in ["AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]:
         count = int((has_q5a["Q5a"] == v).sum())
         pct = count / n * 100
         print(f"  {v:>70s}: {count:3d} ({pct:5.1f}%)")
+
+
+# ===========================================================================
+# AGGREGATE MONETIZATION EFFECT
+# ===========================================================================
+
+# Paid-intent = Q8_2 (paid TV) OR Q8_4 (attend) OR Q8_5 (merch)
+df["paid_engaged"] = (
+    (df["Q8_2_bin"] + df["Q8_4_bin"] + df["Q8_5_bin"]) > 0
+).astype(int)
+
+df["branded_paid"] = df["follow_branded"] * df["paid_engaged"]
+df["unbranded_paid"] = df["follow_unbranded"] * df["paid_engaged"]
+
+# ---------------------------------------------------------------------------
+# AGGREGATE PAID-INTENT BY SEGMENT (sample-weighted)
+# ---------------------------------------------------------------------------
+print("\n\n" + "=" * 90)
+print("AGGREGATE PAID-INTENT EFFECT: BRANDED vs UNBRANDED")
+print("Paid-intent = any of: Watch paid TV/stream, Attend game, Buy merchandise")
+print("=" * 90)
+
+print(f"\n{'':>20s} | {'n':>5s} | {'Unbranded':>12s} | {'Branded':>12s} | {'Delta':>10s}")
+print("-" * 70)
+
+for label in ["All", "AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]:
+    mask = pd.Series([True] * len(df), index=df.index) if label == "All" else (df["segment"] == label)
+    sub = df[mask]
+    n = len(sub)
+    ub = sub["unbranded_paid"].sum()
+    br = sub["branded_paid"].sum()
+    ub_pct = ub / n * 100
+    br_pct = br / n * 100
+    delta = br_pct - ub_pct
+    print(f"{label:>20s} | {n:5d} | {ub:3d} ({ub_pct:5.1f}%) | {br:3d} ({br_pct:5.1f}%) | {delta:+5.1f}pp")
+
+# ---------------------------------------------------------------------------
+# POPULATION-WEIGHTED PAID-INTENT
+# ---------------------------------------------------------------------------
+print("\n\n" + "=" * 90)
+print("POPULATION-WEIGHTED PAID-INTENT (YouGov Profiles+ Italy)")
+print("=" * 90)
+
+pop_shares = {
+    "AC Milan Fan": 9.6, "Inter Milan Fan": 11.3,
+    "Other Serie A Fan": 39.3, "Non- Fan": 34.0,
+}
+total_pop = sum(pop_shares.values())
+pop_shares_norm = {k: v / total_pop for k, v in pop_shares.items()}
+
+nat_ub = 0
+nat_br = 0
+print(f"\n{'Segment':>20s} | {'Pop wt':>7s} | {'Unbranded':>10s} | {'Branded':>10s} | {'Delta':>8s}")
+print("-" * 70)
+for seg in ["AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]:
+    sub = df[df["segment"] == seg]
+    w = pop_shares_norm[seg]
+    ub_rate = sub["unbranded_paid"].mean()
+    br_rate = sub["branded_paid"].mean()
+    nat_ub += w * ub_rate
+    nat_br += w * br_rate
+    delta = (br_rate - ub_rate) * 100
+    print(f"{seg:>20s} | {w*100:5.1f}%  | {ub_rate*100:7.1f}%  | {br_rate*100:7.1f}%  | {delta:+5.1f}pp")
+
+print(f"\n{'NATIONAL':>20s} | {'100%':>7s} | {nat_ub*100:7.1f}%  | {nat_br*100:7.1f}%  | {(nat_br-nat_ub)*100:+5.1f}pp")
+
+# ---------------------------------------------------------------------------
+# CONVERTER vs REPELLED PAID-INTENT QUALITY
+# ---------------------------------------------------------------------------
+print("\n\n" + "=" * 90)
+print("CONVERTER vs REPELLED PAID-INTENT QUALITY")
+print("=" * 90)
+
+print(f"\n{'':>20s} | {'Converters':>20s} | {'Repelled':>20s} | {'Ratio':>8s}")
+print("-" * 75)
+for label in ["All", "AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]:
+    mask = pd.Series([True] * len(df), index=df.index) if label == "All" else (df["segment"] == label)
+    sub = df[mask]
+    conv = sub[sub["switcher_cat"] == "converter"]
+    rep = sub[sub["switcher_cat"] == "repelled"]
+    n_c, n_r = len(conv), len(rep)
+    if n_c < 5 and n_r < 5:
+        continue
+    paid_c = conv["paid_engaged"].mean() * 100 if n_c > 0 else 0
+    paid_r = rep["paid_engaged"].mean() * 100 if n_r > 0 else 0
+    ratio = paid_c / paid_r if paid_r > 0 else float("inf")
+    print(f"{label:>20s} | {n_c:3d} at {paid_c:4.1f}% paid | {n_r:3d} at {paid_r:4.1f}% paid | {ratio:5.1f}x")
+
+# ---------------------------------------------------------------------------
+# PAID-INTENT BY SENTIMENT (population-weighted)
+# ---------------------------------------------------------------------------
+print("\n\n" + "=" * 90)
+print("PAID-INTENT BY SENTIMENT (population-weighted)")
+print("=" * 90)
+
+within_seg_sent = {}
+for seg in ["AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]:
+    sub = df[df["segment"] == seg]
+    n_seg = len(sub)
+    for sent in ["positive_or_fan", "neutral", "negative"]:
+        count = (sub["q1_3level"] == sent).sum()
+        within_seg_sent[(seg, sent)] = count / n_seg if n_seg > 0 else 0
+
+pop_sent = {}
+for sent in ["positive_or_fan", "neutral", "negative"]:
+    pop_sent[sent] = sum(
+        pop_shares_norm[seg] * within_seg_sent[(seg, sent)]
+        for seg in ["AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]
+    )
+
+nat_ub = 0
+nat_br = 0
+print(f"\n{'Sentiment':>16s} | {'Pop wt':>7s} | {'Unbranded':>10s} | {'Branded':>10s} | {'Delta':>8s}")
+print("-" * 65)
+for sent in ["positive_or_fan", "neutral", "negative"]:
+    sub = df[df["q1_3level"] == sent]
+    ub_rate = sub["unbranded_paid"].mean()
+    br_rate = sub["branded_paid"].mean()
+    w = pop_sent[sent]
+    nat_ub += w * ub_rate
+    nat_br += w * br_rate
+    delta = (br_rate - ub_rate) * 100
+    print(f"{sent:>16s} | {w*100:5.1f}%  | {ub_rate*100:7.1f}%  | {br_rate*100:7.1f}%  | {delta:+5.1f}pp")
+
+print(f"\n{'NATIONAL':>16s} | {'100%':>7s} | {nat_ub*100:7.1f}%  | {nat_br*100:7.1f}%  | {(nat_br-nat_ub)*100:+5.1f}pp")
+
+# ---------------------------------------------------------------------------
+# VALUE CONCENTRATION
+# ---------------------------------------------------------------------------
+print("\n\n" + "=" * 90)
+print("VALUE CONCENTRATION: SHARE OF BRANDED PAID BY SENTIMENT")
+print("=" * 90)
+
+total_br = df["branded_paid"].sum()
+for sent in ["positive_or_fan", "neutral", "negative"]:
+    sub = df[df["q1_3level"] == sent]
+    br_p = sub["branded_paid"].sum()
+    share = br_p / total_br * 100 if total_br > 0 else 0
+    print(f"  {sent:>16s}: {br_p:3d} of {total_br} branded paid ({share:.1f}%)")

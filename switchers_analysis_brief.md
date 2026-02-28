@@ -5,6 +5,7 @@
 - **ACM conversion is real and commercially valuable.** ACM fans show a 5:1 converter-to-repelled ratio (18.7% vs 3.7%). These converters are not soft — 93% would engage, 57% would pay (streaming, attendance, merch), and 51% would engage in more than one way.
 - **Inter repulsion is Q1-dependent, not monolithic.** Among the one-third of Inter fans who feel negatively toward ACM, branding is near-pure repulsion (1.4% convert, 24.6% repelled). Among the half who feel neutral, repulsion is significant but softer (3.9% convert, 17.6% repelled) and 12.7% stayed likely despite the branding. Among the 15% who feel positively, it is polarizing (11.1% convert, 15.9% repelled, net close to zero) and 42.9% stayed likely. The headline -15.5pp is driven disproportionately by the ACM-hostile sub-segment, not the entire rival fanbase.
 - **Repelled does not mean lost.** 54% of repelled Inter fans would still engage with the franchise in at least one way — primarily through free TV and highlights. They are downgraded from committed fans to casual viewers, not eliminated. Their stated objection is to club-specific branding, not to the franchise concept: 50% prefer a city identity, 0% cite ACM affiliation as a reason to support.
+- **Monetization holds despite follow losses.** Full ACM branding is net-negative for follow intent (-3.2pp nationally) but monetization-neutral (-0.1pp). Converters have 2× the paid-intent rate of repelled (48.5% vs 24.0%), and 80% of branded paid-intent comes from positive-sentiment individuals (29% of the population). Branding concentrates commercial value in high-LTV segments.
 - **This is a design question, not a viability question.** The data points toward a positioning solution — a team framed as Milan's NBA team (with ACM backing) rather than ACM's NBA team — that could retain the conversion engine while reducing identity-triggered repulsion.
 
 ---
@@ -353,4 +354,98 @@ Among the 80 repelled Inter fans: only 12.5% would attend and 15% would pay for 
 
 ---
 
-*Source: YouGov survey, February 2026 (n=1,625 Italian respondents). Binary follow classification: top-2 box (Very likely + Somewhat likely = 1). Engagement behaviors: Q8 (multi-select), Q9 (primary mode), Q10 (support reason), Q5a (reason for lower branded rating). Full regression context: `regression_analysis_writeup_2.md`. Code: `switchers_analysis.py`.*
+## Aggregate Monetization Effect: Does Branding Help or Hurt National Paid-Intent?
+
+The downstream tables above show paid engagement *within* each switcher category. But the NBA cares about the total market: does ACM branding increase or decrease the number of people who would both follow the team *and* pay (streaming, attendance, or merch)?
+
+### Method
+
+For each respondent, define:
+
+- **Paid-intent** = 1 if they selected any of: Watch paid TV/streaming, Attend a game, Buy merchandise (Q8_2, Q8_4, or Q8_5)
+- **Branded paid** = follow_branded × paid_intent
+- **Unbranded paid** = follow_unbranded × paid_intent
+- **Net paid delta** = % branded_paid − % unbranded_paid
+
+The key assumption: Q8 engagement propensity is an individual characteristic. Branding affects *whether* someone follows (Q5), but given that they follow, their engagement intensity is assumed stable. This is conservative — if branding also changes engagement intensity, the true effect could be larger or smaller.
+
+### Results by segment
+
+#### Sample-weighted (equal segment quotas)
+
+| Segment | n | Unbranded paid | Branded paid | Delta |
+|---|---:|---:|---:|---:|
+| **All** | 1,625 | 248 (15.3%) | 267 (16.4%) | **+1.2pp** |
+| AC Milan Fan | 402 | 91 (22.6%) | 129 (32.1%) | +9.5pp |
+| Inter Milan Fan | 406 | 64 (15.8%) | 52 (12.8%) | -3.0pp |
+| Other Serie A Fan | 410 | 73 (17.8%) | 66 (16.1%) | -1.7pp |
+| Non-Fan | 407 | 20 (4.9%) | 20 (4.9%) | +0.0pp |
+
+#### Population-weighted (YouGov Profiles+ Italy)
+
+| Segment | Pop weight | Unbranded paid | Branded paid | Delta |
+|---|---:|---:|---:|---:|
+| AC Milan Fan | 10.2% | 22.6% | 32.1% | +9.5pp |
+| Inter Milan Fan | 12.0% | 15.8% | 12.8% | -3.0pp |
+| Other Serie A Fan | 41.7% | 17.8% | 16.1% | -1.7pp |
+| Non-Fan | 36.1% | 4.9% | 4.9% | +0.0pp |
+| **National** | **100%** | **13.4%** | **13.3%** | **-0.1pp** |
+
+**Full ACM branding is monetization-neutral nationally (-0.1pp).** Follow intent drops by -3.2pp, but monetization barely moves because the people gained by branding are much more monetizable than the people lost.
+
+### Why monetization holds despite follow losses
+
+| Switcher category | n | Paid-intent rate | Role in branded | Role in unbranded |
+|---|---:|---:|---|---|
+| Converter | 130 | **48.5%** | Gained (63 paid) | Not following |
+| Repelled | 183 | 24.0% | Not following | Lost (44 paid) |
+| Stayed likely | 307 | 66.4% | Active (204 paid) | Active (204 paid) |
+| Stayed unlikely | 1,005 | 10.8% | Not following | Not following |
+
+Converters have **2× the paid-intent rate** of repelled (48.5% vs 24.0%). There are fewer converters than repelled (130 vs 183), but each converter is worth roughly twice as much in monetization terms. The result: branding swaps out 44 lower-quality paid fans for 63 higher-quality ones — a net gain of +19 paid individuals in sample terms, which washes out to roughly flat at population weights.
+
+### By ACM sentiment (population-weighted)
+
+| Sentiment | Pop weight | Unbranded paid | Branded paid | Delta |
+|---|---:|---:|---:|---:|
+| Positive / Fan | 29.1% | 27.7% | 33.6% | +5.9pp |
+| Neutral | 58.0% | 7.4% | 5.2% | -2.2pp |
+| Negative | 13.0% | 6.5% | 5.7% | -0.9pp |
+| **National** | **100%** | **13.2%** | **13.5%** | **+0.3pp** |
+
+The monetization gain is concentrated entirely in the positive-sentiment group (+5.9pp). Neutrals lose -2.2pp and negatives -0.9pp, but from much lower bases. The national figure is essentially flat.
+
+### Value concentration
+
+| Sentiment | Share of population | Share of branded paid-intent |
+|---|---:|---:|
+| Positive / Fan | 29.1% | **80.5%** |
+| Neutral | 58.0% | 14.6% |
+| Negative | 13.0% | 4.9% |
+
+**80.5% of all branded paid-intent comes from the 29% of the population who feel positively toward ACM.** Branding concentrates commercial value in the highest-affinity segment. This is the high-LTV concentration effect — the people most likely to pay are also the people most activated by the brand.
+
+### Sub-components (population-weighted)
+
+| Paid behavior | Unbranded | Branded | Delta |
+|---|---:|---:|---:|
+| Paid TV/streaming | 7.4% | 7.4% | -0.1pp |
+| Attend game | 7.3% | 7.2% | -0.0pp |
+| Buy merchandise | 4.4% | 5.1% | +0.7pp |
+| **Any paid** | **13.4%** | **13.3%** | **-0.1pp** |
+
+Merch is the only sub-component that clearly improves (+0.7pp). Paid TV and attendance are flat. This suggests branding activates *merchandise purchasing* specifically — the most brand-identity-linked behavior — while leaving media consumption roughly unchanged.
+
+### What this means
+
+1. **Monetization is not the problem.** Full ACM branding is net-negative for follow intent (-3.2pp nationally) but monetization-neutral (-0.1pp). The NBA cannot argue that ACM branding destroys commercial value — it doesn't.
+
+2. **But monetization isn't the argument either.** Flat is not positive. A -3.2pp follow loss that produces flat monetization means branding is trading breadth for depth — fewer fans, but higher-value ones. This is a defensible strategy if the goal is a high-LTV niche franchise, but it limits total addressable market.
+
+3. **The real upside is in Milan-first.** If Milan-first branding softens the neutral follow penalty from -7.1pp to -2.5pp (as the sentiment regression estimates), monetization should *improve* — because the positive-sentiment activation is preserved while fewer moderate fans are lost. The +3.0pp follow gain under Milan-first would flow through to paid-intent as well, since the new followers would include both high-intent positive fans and moderate neutral fans.
+
+4. **Value concentration is extreme and strategically useful.** 80% of branded paid-intent from 29% of the population means the franchise's commercial core is identifiable and reachable. ACM's existing fan infrastructure (media, social, stadium) becomes a distribution channel to exactly the audience that drives revenue.
+
+---
+
+*Source: YouGov survey, February 2026 (n=1,625 Italian respondents). Binary follow classification: top-2 box (Very likely + Somewhat likely = 1). Engagement behaviors: Q8 (multi-select), Q9 (primary mode), Q10 (support reason), Q5a (reason for lower branded rating). Paid-intent: Q8_2 (paid TV) or Q8_4 (attend) or Q8_5 (merch). Population weights: YouGov Profiles+ Italy segment estimates. Full regression context: `regression_analysis_writeup_2.md`. Code: `switchers_analysis.py`.*
