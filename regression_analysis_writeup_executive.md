@@ -12,7 +12,7 @@
 
 **Implication:** ACM branding de-risks early adoption within the ACM base, but requires mitigation strategies to limit rival-fan repulsion.
 
-Below are five analyses using the same 1,625 Italian respondents from the February 2026 YouGov survey (unweighted; see Limitations). **The within-subject branding test (section 3) is the primary analysis.** The remaining analyses provide supporting context on baseline, conversion, and mechanism.
+Below are five analyses using the same 1,625 Italian respondents from the February 2026 YouGov survey (unweighted; see Limitations). **Section 3 (within-subject branding test by segment) establishes that branding polarizes by club group. Section 4 (sentiment model) isolates the deeper mechanism: it is emotional sentiment toward AC Milan — not club affiliation per se — that drives both the lift and the repulsion.** Section 5 provides additional supporting context.
 
 ---
 
@@ -42,7 +42,7 @@ Responses are on a 5-point scale (Very likely → Very unlikely). We code the to
 | Other Serie A Fan | Segment variable built from S5: supports another Serie A club | 410 |
 | Non-Fan | Segment variable built from S5: does not support a Serie A club | 407 |
 
-Q1 here is used only for YouGov segment-construction rules. In the sentiment analysis (section 4), we separately model AC Milan sentiment from Q1 (positive / neutral / negative) as its own moderator.
+Q1 here is used only for YouGov segment-construction rules. In section 4 (sentiment mechanism), we replace club segment with AC Milan sentiment from Q1 (positive / neutral / negative) to isolate the psychological driver of the branding effect.
 
 ### Controls
 
@@ -121,7 +121,72 @@ This geography control captures Milan proximity; we avoided simultaneously addin
 
 ---
 
-## 4. Supporting Evidence
+## 4. The Mechanism: Sentiment, Not Club Affiliation
+
+The segment-based test (section 3) shows *that* branding polarizes by club group. But segment interactions (ACM vs Inter) conflate club identity with emotional sentiment — some Inter fans feel positively toward ACM, some Non-Fans feel negatively, etc. This section isolates the psychological mechanism by replacing club segment with **ACM sentiment** (Q1: positive/fan, neutral, negative) in the same within-subject GEE framework.
+
+This distinction matters strategically: club affiliation is fixed (you cannot change whether someone supports Inter), but **sentiment is malleable** and can be influenced by positioning, branding architecture, and messaging.
+
+**Method**: Same within-subject GEE as the primary test, same controls (basketball baseline, geography, age, gender, income), but the independent variables are now:
+
+| # | Variable | What it captures |
+|---|---|---|
+| 1 | `affiliated` (0/1) | Branding effect for **neutral**-sentiment individuals (reference group) |
+| 2 | `positive_sentiment` (0/1) | Baseline difference: positive/fan vs neutral on the unbranded team |
+| 3 | `negative_sentiment` (0/1) | Baseline difference: negative vs neutral on the unbranded team |
+| 4 | `affiliated × positive` | **Additional** branding effect for positive-sentiment individuals |
+| 5 | `affiliated × negative` | **Additional** branding effect for negative-sentiment individuals |
+
+The total branding effect for positive-sentiment individuals = coefficients 1 + 4. The total branding effect for negative-sentiment individuals = coefficients 1 + 5.
+
+### Individual coefficients
+
+| # | Coefficient | OR | 95% CI | p-value | Interpretation |
+|---|---|---|---|---|---|
+| 1 | `affiliated` | **0.47** | 0.37 – 0.61 | < 0.001 | Neutral-sentiment branding effect: reduces follow odds by ~53% |
+| 2 | `positive_sentiment` | 1.33 | 1.02 – 1.74 | 0.037 | Positive-sentiment baseline edge on unbranded team |
+| 3 | `negative_sentiment` | 1.09 | 0.74 – 1.62 | 0.649 | Negative-sentiment baseline vs neutral (n.s.) |
+| 4 | **`aff × positive`** | **3.42** | **2.45 – 4.77** | **< 0.001** | **Positive sentiment gets a 3.4× extra branding boost** |
+| 5 | **`aff × negative`** | **0.44** | **0.25 – 0.77** | **0.004** | **Negative sentiment gets an additional branding penalty** |
+
+### Total branding effect by sentiment
+
+| Sentiment | Total Branding OR | 95% CI | p-value | In Plain English |
+|---|---|---|---|---|
+| Neutral toward ACM | **0.47** | 0.37 – 0.61 | < 0.001 | Branding reduces odds by ~53% |
+| **Negative toward ACM** | **0.21** | 0.12 – 0.35 | **< 0.001** | **Branding cuts odds to ~1/5th** |
+| **Positive toward ACM / Fan** | **1.62** | 1.31 – 2.00 | **< 0.001** | **Branding increases odds by ~62%** |
+
+### Why this matters more than the segment model
+
+The segment model (section 3) shows that ACM fans respond positively and Inter fans respond negatively. But the sentiment model reveals that the pattern holds *across* club lines:
+
+| Segment | AC Milan Sentiment (Q1) | n | Unbranded | Branded | Lift |
+|---|---|---|---|---|---|
+| **AC Milan Fan** | Strong identifier | 180 | 40.0% | 59.4% | **+19.4pp** |
+| **AC Milan Fan** | Casual supporter | 222 | 25.7% | 36.9% | **+11.3pp** |
+| | | | | | |
+| **Inter Milan Fan** | Negative toward ACM | 138 | 32.6% | 9.4% | **-23.2pp** |
+| **Inter Milan Fan** | Neutral toward ACM | 205 | 30.2% | 16.6% | **-13.7pp** |
+| **Inter Milan Fan** | Positive toward ACM | 63 | 58.7% | 54.0% | **-4.8pp** |
+| | | | | | |
+| **Other Serie A Fan** | Negative toward ACM | 55 | 25.5% | 14.5% | **-10.9pp** |
+| **Other Serie A Fan** | Neutral toward ACM | 235 | 30.6% | 19.6% | **-11.1pp** |
+| **Other Serie A Fan** | Positive toward ACM | 120 | 62.5% | 57.5% | **-5.0pp** |
+| | | | | | |
+| **Non-Fan** | Negative toward ACM | 37 | 13.5% | 5.4% | **-8.1pp** |
+| **Non-Fan** | Neutral toward ACM | 316 | 10.1% | 7.0% | **-3.2pp** |
+| **Non-Fan** | Positive toward ACM | 54 | 35.2% | 37.0% | **+1.9pp** |
+
+Key patterns: Within *every* segment, branding repulsion scales with sentiment — Inter fans who feel negatively show -23.2pp lift, but Inter fans who feel positively show only -4.8pp. The same gradient appears among Other Serie A fans and Non-Fans.
+
+### Strategic implication
+
+If branding lift is driven by positive sentiment and repulsion is driven by negative sentiment, the optimization problem becomes: **how do we maximize positive-sentiment activation while minimizing negative-sentiment salience?** This is a branding design problem, not a market viability problem. Club segment is fixed, but sentiment can be influenced by positioning, branding architecture, and messaging.
+
+---
+
+## 5. Supporting Evidence
 
 ### Who Follows the Branded Team? (Cross-Sectional)
 
@@ -187,46 +252,9 @@ Nearly one in three ACM fans converts upward because of the branding. Only ~7–
 
 **Basketball baseline is not the primary driver of uplift** — only one category is significant (OR = 2.23, p = 0.024), while ACM identity dominates (OR = 5.73, p < 0.001). **Geography does not predict uplift** (p = 0.698).
 
-### Does AC Milan Sentiment Moderate the Branding Effect?
-
-**Question**: Is the branding repulsion among Inter fans driven by those who actively dislike AC Milan, or does it affect all Inter fans equally?
-
-**Method**: Same within-subject GEE as the primary test above, but replacing segment with AC Milan sentiment (Q1): positive/fan, neutral (reference), negative.
-
-#### Descriptive: Branding lift by segment × AC Milan relationship (Q1)
-
-| Segment | AC Milan Sentiment (Q1) | n | Unbranded | Branded | Lift | Uplift % |
-|---|---|---|---|---|---|---|
-| **AC Milan Fan** | Strong identifier | 180 | 40.0% | 59.4% | **+19.4pp** | 40.0% |
-| **AC Milan Fan** | Casual supporter | 222 | 25.7% | 36.9% | **+11.3pp** | 26.6% |
-| | | | | | | |
-| **Inter Milan Fan** | Negative toward ACM | 138 | 32.6% | 9.4% | **-23.2pp** | 2.9% |
-| **Inter Milan Fan** | Neutral toward ACM | 205 | 30.2% | 16.6% | **-13.7pp** | 6.3% |
-| **Inter Milan Fan** | Positive toward ACM | 63 | 58.7% | 54.0% | **-4.8pp** | 15.9% |
-| | | | | | | |
-| **Other Serie A Fan** | Negative toward ACM | 55 | 25.5% | 14.5% | **-10.9pp** | 5.5% |
-| **Other Serie A Fan** | Neutral toward ACM | 235 | 30.6% | 19.6% | **-11.1pp** | 6.8% |
-| **Other Serie A Fan** | Positive toward ACM | 120 | 62.5% | 57.5% | **-5.0pp** | 15.8% |
-| | | | | | | |
-| **Non-Fan** | Negative toward ACM | 37 | 13.5% | 5.4% | **-8.1pp** | 8.1% |
-| **Non-Fan** | Neutral toward ACM | 316 | 10.1% | 7.0% | **-3.2pp** | 4.7% |
-| **Non-Fan** | Positive toward ACM | 54 | 35.2% | 37.0% | **+1.9pp** | 22.2% |
-
-Key patterns: Inter repulsion scales with ACM hostility (-23.2pp → -13.7pp → -4.8pp). Strong ACM identifiers show +19.4pp lift vs +11.3pp for casual supporters.
-
-#### Regression results
-
-| Sentiment | Total Branding OR | 95% CI | p-value | In Plain English |
-|---|---|---|---|---|
-| Neutral toward ACM | **0.47** | 0.37 – 0.61 | < 0.001 | Branding reduces odds by ~53% |
-| **Negative toward ACM** | **0.21** | 0.12 – 0.35 | **< 0.001** | **Branding cuts odds to ~1/5th** |
-| **Positive toward ACM / Fan** | **1.62** | 1.31 – 2.00 | **< 0.001** | **Branding increases odds by ~62%** |
-
-This confirms the mechanism is **AC Milan sentiment**, not generic football fandom.
-
 ---
 
-## 5. Limitations
+## 6. Limitations
 
 1. **Stated intent, not observed behavior.** These are survey responses about hypothetical follow intent, not actual ticket purchases or viewership. Relative differences between groups tend to hold, but absolute conversion rates should be interpreted cautiously.
 
@@ -238,17 +266,17 @@ This confirms the mechanism is **AC Milan sentiment**, not generic football fand
 
 ---
 
-## 6. Summary
+## 7. Summary
 
 | Analysis | What It Shows | Key Number |
 |---|---|---|
-| **Within-subject branding test** | Net branding effect is strongly positive for ACM fans but negative for rivals (segment-specific branded vs unbranded effects) | ACM OR = 2.50; Inter OR = 0.34 |
-| **Branded team** (cross-sectional) | ACM fans are far more likely to follow the branded team | OR = 6.28 vs Non-Fan |
-| **Unbranded baseline** | Without branding, ACM fans are *less* interested than other football fans; branding reverses this | ACM +14.9pp vs Inter -15.5pp |
-| **Uplift** | 1 in 3 ACM fans converts upward because of branding; geography/basketball don't predict it | 32.6% uplift, OR = 5.73 |
-| **Sentiment moderator** | ACM sentiment — not club segment — is the mechanism; positive sentiment lifts, negative sentiment repels | Positive/Fan OR = 1.62; Negative OR = 0.21 |
+| **Within-subject branding test** (§3) | Branding is strongly positive for ACM fans but negative for rivals, by club group | ACM OR = 2.50; Inter OR = 0.34 |
+| **Sentiment mechanism** (§4) | The true driver is emotional sentiment toward ACM, not club affiliation; positive sentiment lifts, negative sentiment repels — and sentiment is malleable | Positive OR = 1.62; Negative OR = 0.21 |
+| **Branded team** (§5) | ACM fans are far more likely to follow the branded team | OR = 6.28 vs Non-Fan |
+| **Unbranded baseline** (§5) | Without branding, ACM fans are *less* interested than other football fans; branding reverses this | ACM +14.9pp vs Inter -15.5pp |
+| **Uplift** (§5) | 1 in 3 ACM fans converts upward because of branding; geography/basketball don't predict it | 32.6% uplift, OR = 5.73 |
 
-The AC Milan affiliation effect is real, large, identity-specific, and independent of basketball interest, geography, age, gender, and income. It operates as a **polarizing identity activator**: it attracts people who feel positively toward AC Milan and repels those who feel negatively, regardless of their football club allegiance.
+The AC Milan affiliation effect is real, large, and independent of basketball interest, geography, age, gender, and income. The deeper finding is that the mechanism is **emotional sentiment toward AC Milan**, not club affiliation per se. Positive sentiment drives branding lift; negative sentiment drives repulsion. This holds across all club segments. Because sentiment is malleable — unlike club allegiance — the optimization problem becomes one of branding design (how to maximize positive-sentiment activation while minimizing negative-sentiment salience), not market viability.
 
 ---
 

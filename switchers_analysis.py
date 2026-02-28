@@ -148,3 +148,127 @@ print("=" * 120)
 for sentiment in ["negative", "neutral", "positive_or_fan"]:
     mask = (df["segment"] == "Non- Fan") & (df["q1_3level"] == sentiment)
     print_row(switcher_table(mask, sentiment))
+
+
+# ===========================================================================
+# DOWNSTREAM ENGAGEMENT ANALYSIS
+# ===========================================================================
+
+# Q8 engagement behaviors — code Yes=1, No=0
+q8_labels = {
+    "Q8_1": "Watch free TV/stream",
+    "Q8_2": "Watch paid TV/stream",
+    "Q8_3": "Follow highlights/social",
+    "Q8_4": "Attend game",
+    "Q8_5": "Buy merchandise",
+    "Q8_6": "Would not engage",
+}
+for col in q8_labels:
+    df[col + "_bin"] = (df[col] == "Yes").astype(int)
+
+# At least one engagement behavior (excluding Q8_6)
+df["any_engage"] = (
+    (df["Q8_1_bin"] + df["Q8_2_bin"] + df["Q8_3_bin"] + df["Q8_4_bin"] + df["Q8_5_bin"]) > 0
+).astype(int)
+
+# ---------------------------------------------------------------------------
+# Q8 ENGAGEMENT BY SWITCHER CATEGORY × SEGMENT
+# ---------------------------------------------------------------------------
+print("\n\n" + "=" * 130)
+print("Q8 ENGAGEMENT BEHAVIORS BY SWITCHER CATEGORY × SEGMENT")
+print("=" * 130)
+
+for seg in ["AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]:
+    print(f"\n--- {seg} ---")
+    seg_df = df[df["segment"] == seg]
+
+    header = (
+        f"{'Category':>17s} | {'n':>4s} | {'Watch free':>14s} | {'Watch paid':>14s} "
+        f"| {'Highlights':>14s} | {'Attend':>14s} | {'Merch':>14s} "
+        f"| {'No engage':>14s} | {'Any engage':>14s}"
+    )
+    print(header)
+    print("-" * 130)
+
+    for cat in ["converter", "repelled", "stayed_likely", "stayed_unlikely"]:
+        sub = seg_df[seg_df["switcher_cat"] == cat]
+        n = len(sub)
+        if n < 5:
+            continue
+        vals = {}
+        for col, label in q8_labels.items():
+            count = int(sub[col + "_bin"].sum())
+            pct = count / n * 100
+            vals[label] = f"{count:3d} ({pct:5.1f}%)"
+        any_count = int(sub["any_engage"].sum())
+        any_pct = any_count / n * 100
+        vals["Any engage"] = f"{any_count:3d} ({any_pct:5.1f}%)"
+        print(
+            f"{cat:>17s} | {n:4d} | {vals['Watch free TV/stream']:>14s} "
+            f"| {vals['Watch paid TV/stream']:>14s} | {vals['Follow highlights/social']:>14s} "
+            f"| {vals['Attend game']:>14s} | {vals['Buy merchandise']:>14s} "
+            f"| {vals['Would not engage']:>14s} | {vals['Any engage']:>14s}"
+        )
+
+# ---------------------------------------------------------------------------
+# Q10 SUPPORT REASON BY SWITCHER CATEGORY × SEGMENT
+# ---------------------------------------------------------------------------
+print("\n\n" + "=" * 110)
+print("Q10 SUPPORT REASON BY SWITCHER CATEGORY × SEGMENT")
+print("=" * 110)
+
+q10_vals = [
+    "Because it is affiliated with AC Milan",
+    "Because it represents Milan, regardless of club",
+    "Because it is Italy's team in the league",
+    "I would not support a Milan NBA team",
+]
+
+for seg in ["AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]:
+    print(f"\n--- {seg} ---")
+    seg_df = df[df["segment"] == seg]
+    print(
+        f"{'Category':>17s} | {'n':>4s} | {'ACM affiliated':>16s} "
+        f"| {'Represents Milan':>18s} | {'Italy team':>14s} | {'Would not support':>18s}"
+    )
+    print("-" * 110)
+    for cat in ["converter", "repelled", "stayed_likely", "stayed_unlikely"]:
+        sub = seg_df[seg_df["switcher_cat"] == cat]
+        n = len(sub)
+        if n < 5:
+            continue
+        vals = []
+        for q10v in q10_vals:
+            count = int((sub["Q10"] == q10v).sum())
+            pct = count / n * 100
+            vals.append(f"{count:3d} ({pct:5.1f}%)")
+        print(
+            f"{cat:>17s} | {n:4d} | {vals[0]:>16s} | {vals[1]:>18s} "
+            f"| {vals[2]:>14s} | {vals[3]:>18s}"
+        )
+
+# ---------------------------------------------------------------------------
+# Q5a REASONS FOR BEING LESS LIKELY (among repelled)
+# ---------------------------------------------------------------------------
+print("\n\n" + "=" * 100)
+print("Q5a REASONS FOR BEING LESS LIKELY (among repelled, by segment)")
+print("=" * 100)
+
+q5a_vals = [
+    "I support a different football club and therefore would be less interested",
+    "I prefer a team that represents Milan as a city rather than one football club",
+    "I don't like football branding in basketball",
+    "Other/not sure",
+]
+
+for seg in ["AC Milan Fan", "Inter Milan Fan", "Other Serie A Fan", "Non- Fan"]:
+    repelled = df[(df["segment"] == seg) & (df["switcher_cat"] == "repelled")]
+    n = len(repelled)
+    if n < 5:
+        continue
+    has_q5a = repelled[repelled["Q5a"].isin(q5a_vals)]
+    print(f"\n--- {seg} (n={n} repelled, {len(has_q5a)} answered Q5a) ---")
+    for v in q5a_vals:
+        count = int((has_q5a["Q5a"] == v).sum())
+        pct = count / n * 100
+        print(f"  {v:>70s}: {count:3d} ({pct:5.1f}%)")
