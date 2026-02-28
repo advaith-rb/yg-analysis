@@ -80,7 +80,7 @@ Neutrals are the largest group. They are also the group whose response is most s
 | Positive / Fan | 18.3% | 26.6% | +8.3pp — base penalty is more than offset by positive activation | 1.62 (= 0.47 × 3.42) |
 | Negative | 15.6% | 3.7% | -11.9pp — base penalty is compounded by negative repulsion | 0.21 (= 0.47 × 0.44) |
 
-The neutral OR (0.47) is the base branding effect. The positive total OR (1.62) is the base × the positive interaction term (3.42). The negative total OR (0.21) is the base × the negative interaction term (0.44). The key insight: branding has a negative base effect (visible in the neutral group), but this is overridden by strong positive activation among those who feel positively toward ACM.
+The neutral OR (0.47) is the base branding effect. The positive total OR (1.62) is the base × the positive interaction term (3.42). The negative total OR (0.21) is the base × the negative interaction term (0.44). Predicted follow rates are evaluated at modal covariates (moderate basketball interest, North-west, age 35–54, male, mid-income); population totals reflect sentiment reweighting rather than full demographic standardization. The key insight: branding has a negative base effect (visible in the neutral group), but this is overridden by strong positive activation among those who feel positively toward ACM.
 
 ### Scenario construction
 
@@ -131,7 +131,7 @@ ACM fans are 100% positive by definition (Q1 only offers positive response optio
 | Neutral | 46.5% | **58.0%** | +11.5pp |
 | Negative | 14.2% | 13.0% | -1.2pp |
 
-The sample overrepresents positive-sentiment individuals by ~10pp (because ACM fans were 25% of the sample but only ~10% of Italy). In reality, **neutrals are 58% of the country** — making the neutral penalty even more consequential.
+The population sentiment distribution is inferred by combining YouGov Profiles+ segment incidence with within-segment sentiment shares observed in the survey — not from an external national sentiment measure. The sample overrepresents positive-sentiment individuals by ~10pp (because ACM fans were 25% of the sample but only ~10% of Italy). In reality, **neutrals are 58% of the country** — making the neutral penalty even more consequential.
 
 | Scenario | Positive (29.1%) | Neutral (58.0%) | Negative (13.0%) | **National** |
 |---|---:|---:|---:|---:|
@@ -184,4 +184,4 @@ We are no longer trying to prove that ACM branding is best — the data shows it
 
 ---
 
-*Source: YouGov survey, February 2026 (n=1,625 Italian respondents). Within-subject GEE, binomial family, exchangeable correlation. Controls: basketball baseline, geography, age, gender, income. Q1 sentiment collapsed to 3 levels (positive/fan, neutral, negative). Scenario analysis holds interaction terms fixed and adjusts the base affiliated coefficient. Population weights derived from YouGov Profiles+ Italy segment estimates. Code: `switchers_analysis.py`.*
+*Source: YouGov survey, February 2026 (n=1,625 Italian respondents). Within-subject GEE, binomial family, exchangeable correlation. Controls: basketball baseline, geography, age, gender, income. Q1 sentiment collapsed to 3 levels (positive/fan, neutral, negative). Scenario analysis holds interaction terms fixed and adjusts the base affiliated coefficient. Population weights derived from YouGov Profiles+ Italy segment estimates. Code: `sentiment_regression_analysis.py`.*
