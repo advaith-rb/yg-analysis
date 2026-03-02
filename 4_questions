@@ -1,0 +1,28 @@
+
+What Branding Structure Would Optimize National Value?
+4 SUB-QUESTIONS
+1) Is national adoption positive, negative, or tunable?
+	Observed (tested): negative under full ACM branding. Population-weighted national follow goes from 15.7% unbranded to 12.5% full ACM (-3.2pp).
+	Modeled: tunable via architecture (assumption-dependent). Under the Milan-first counterfactual, national follow is 18.7% (+3.0pp vs unbranded; +6.2pp vs full ACM), driven by a smaller neutral penalty (-2.5pp vs -7.1pp) in the scenario.
+	Caveat: Milan-first was not tested in the survey. The Milan-first national estimate assumes the neutral follow-rate drop shrinks from 14.4% → 7.4% (−7.1pp) under full ACM to 14.4% → 11.9% (−2.5pp) under Milan-first. If neutrals drop more than −2.5pp, the modeled national lift would be smaller. 
+	Answer: Negative as tested; potentially tunable in the model, contingent on the neutral-penalty assumption [Revised Sentiment Regression Brief]
+2) Is monetization strengthened or weakened?
+	National monetization is essentially unchanged under full ACM branding. Population-weighted “any paid” goes 13.4% → 13.3% (-0.1pp).
+	Segment-level: ACM fans increase paid-intent materially (+9.5pp) while Inter/Other Serie A decrease (-3.0pp / -1.7pp), netting to ~flat nationally. 
+	By paid subcomponents: merch +0.7pp; paid TV and attendance ~flat. 
+	Answer: Neither meaningfully strengthened nor weakened nationally (flat to -0.1pp) [Switcher Analysis Addendum]
+3) Does branding concentrate value in high-LTV segments?
+We don’t have LTV but do have paid-intent concentration.
+	Paid-intent under branding is highly concentrated among the positive/fan sentiment group: they’re 29.1% of population but 80.5% of branded paid-intent. 
+	Paid-intent deltas by sentiment: Positive/Fan +5.9pp, Neutral -2.2pp, Negative -0.9pp (population-weighted). 
+	Answer: Yes—branding concentrates paid-intent in the highest-affinity (positive-sentiment) segment. [Switcher Analysis Addendum]
+4) Can brand architecture mitigate rival repulsion?
+Two layers to answer this:
+	Mechanism evidence (tested): repulsion tracks sentiment, not just club 
+–	Within Inter fans: negative toward ACM is -23.2pp, neutral -13.7pp, positive -4.8pp (branded vs unbranded). 
+–	This supports the idea that “rival repulsion” is partly a sentiment-driven phenomenon (not purely identity).
+	Architecture mitigation (modeled, not tested)
+–	Milan-first is explicitly a counterfactual that assumes reducing ACM salience lowers the neutral penalty (and, by construction, keeps interaction structure). 
+–	Under that assumption, negatives still decline (-9.5pp), i.e., architecture doesn’t eliminate repulsion; it potentially reduces its national impact by improving the big neutral block. 
+	Answer: Potentially yes for moderates/neutral-adjacent groups (model-based), but hard negatives still resist; and the Milan-first mitigation is not experimentally validated. [Revised Sentiment Analysis Brief]
+

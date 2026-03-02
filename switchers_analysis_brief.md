@@ -29,17 +29,19 @@ Formally, for each segment of size *n*:
 
 This equals the familiar net lift from the regression reports, but now decomposed into its component flows. A segment with 16% repelled and 0% converted is pure repulsion; a segment with 30% repelled and 14% converted is polarization — same net, very different strategic implications.
 
+**Margins of error:** Per YouGov, the margin of error at 95% confidence for each segment (n≈400) is ±5pp. For smaller sub-groups the margin is wider (e.g., ±8pp at n≈138). Differences between segments or sub-groups that fall within these margins should be interpreted with caution.
+
 ---
 
 ## Top-Level Decomposition by Segment
 
-| Segment | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. |
-|---|---:|---:|---:|---:|---:|---:|
-| **All** | 1,625 | 130 (8.0%) | 183 (11.3%) | 307 (18.9%) | 1,005 (61.8%) | -53 (-3.3pp) |
-| **AC Milan Fan** | 402 | **75 (18.7%)** | **15 (3.7%)** | 114 (28.4%) | 198 (49.3%) | **+60 (+14.9pp)** |
-| **Inter Milan Fan** | 406 | 17 (4.2%) | **80 (19.7%)** | 64 (15.8%) | 245 (60.3%) | **-63 (-15.5pp)** |
-| Other Serie A Fan | 410 | 20 (4.9%) | 58 (14.1%) | 103 (25.1%) | 229 (55.9%) | -38 (-9.3pp) |
-| Non-Fan | 407 | 18 (4.4%) | 30 (7.4%) | 26 (6.4%) | 333 (81.8%) | -12 (-2.9pp) |
+| Segment | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. | ±ME |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| **All** | 1,625 | 130 (8.0%) | 183 (11.3%) | 307 (18.9%) | 1,005 (61.8%) | -53 (-3.3pp) | ±2.1 |
+| **AC Milan Fan** | 402 | **75 (18.7%)** | **15 (3.7%)** | 114 (28.4%) | 198 (49.3%) | **+60 (+14.9pp)** | ±4.4 |
+| **Inter Milan Fan** | 406 | 17 (4.2%) | **80 (19.7%)** | 64 (15.8%) | 245 (60.3%) | **-63 (-15.5pp)** | ±4.5 |
+| Other Serie A Fan | 410 | 20 (4.9%) | 58 (14.1%) | 103 (25.1%) | 229 (55.9%) | -38 (-9.3pp) | ±4.1 |
+| Non-Fan | 407 | 18 (4.4%) | 30 (7.4%) | 26 (6.4%) | 333 (81.8%) | -12 (-2.9pp) | ±3.3 |
 
 ### What this table reveals
 
@@ -49,7 +51,7 @@ This equals the familiar net lift from the regression reports, but now decompose
 
 **Other Serie A fans: modest one-directional repulsion.** 58 repelled vs 20 converters — the branding is net-negative but lower-intensity than Inter. The 103 who stayed likely (25.1%) suggest substantial baseline interest survives the branding.
 
-**Non-fans: mostly inert.** 81.8% stayed unlikely regardless. The small converter/repelled flows (-2.9pp net) are negligible.
+**Non-fans: mostly inert.** 81.8% stayed unlikely regardless. The small converter/repelled flows (-2.9pp net, ±3.3 ME) are not statistically significant.
 
 ---
 
@@ -57,48 +59,48 @@ This equals the familiar net lift from the regression reports, but now decompose
 
 ### AC Milan Fans by Identity Intensity
 
-| Identity | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. |
-|---|---:|---:|---:|---:|---:|---:|
-| Strong identifier | 180 | **43 (23.9%)** | 8 (4.4%) | 64 (35.6%) | 65 (36.1%) | +35 (+19.4pp) |
-| Casual supporter | 222 | 32 (14.4%) | 7 (3.2%) | 50 (22.5%) | 133 (59.9%) | +25 (+11.3pp) |
+| Identity | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. | ±ME |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Strong identifier | 180 | **43 (23.9%)** | 8 (4.4%) | 64 (35.6%) | 65 (36.1%) | +35 (+19.4pp) | ±7.2 |
+| Casual supporter | 222 | 32 (14.4%) | 7 (3.2%) | 50 (22.5%) | 133 (59.9%) | +25 (+11.3pp) | ±5.3 |
 
 Both identity tiers show the same pattern — high conversion, minimal repulsion — but the strong identifiers convert at nearly double the rate (23.9% vs 14.4%). The repelled rate is negligible in both groups (~3–4%). The "stayed likely" column is also telling: 35.6% of strong identifiers were interested in both team concepts, meaning the branding retains almost all of an already-interested base while converting a large additional share.
 
 ### Inter Milan Fans by ACM Sentiment (Q1)
 
-| ACM Sentiment | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. |
-|---|---:|---:|---:|---:|---:|---:|
-| Negative | 138 | 2 (1.4%) | **34 (24.6%)** | 11 (8.0%) | 91 (65.9%) | -32 (-23.2pp) |
-| Neutral | 205 | 8 (3.9%) | 36 (17.6%) | 26 (12.7%) | 135 (65.9%) | -28 (-13.7pp) |
-| Positive toward ACM | 63 | 7 (11.1%) | 10 (15.9%) | 27 (42.9%) | 19 (30.2%) | -3 (-4.8pp) |
+| ACM Sentiment | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. | ±ME |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Negative | 138 | 2 (1.4%) | **34 (24.6%)** | 11 (8.0%) | 91 (65.9%) | -32 (-23.2pp) | ±7.6 |
+| Neutral | 205 | 8 (3.9%) | 36 (17.6%) | 26 (12.7%) | 135 (65.9%) | -28 (-13.7pp) | ±6.1 |
+| Positive toward ACM | 63 | 7 (11.1%) | 10 (15.9%) | 27 (42.9%) | 19 (30.2%) | -3 (-4.8pp) | ±12.8 |
 
 **This is the critical table.** The Inter repulsion story has three distinct sub-stories:
 
-1. **Negative-ACM Inter fans (n=138): near-pure repulsion.** Only 2 out of 138 converted. 34 were repelled. This sub-group drives the headline Inter number. They are hostile to ACM and ACM branding functionally eliminates their interest (from 32.6% baseline likely to 9.4% branded likely).
+1. **Negative-ACM Inter fans (n=138): near-pure repulsion.** Only 2 out of 138 converted. 34 were repelled. This sub-group drives the headline Inter number. They are hostile to ACM and ACM branding functionally eliminates their interest (from 32.6% baseline likely to 9.4% branded likely). The -23.2pp net is well outside its ±7.6 margin — statistically significant.
 
-2. **Neutral-ACM Inter fans (n=205): strong repulsion, but some residual interest.** 8 converted, 36 repelled. Still clearly net-negative, but 12.7% stayed likely despite the branding — these are people whose basketball interest outweighs the mild rivalry signal.
+2. **Neutral-ACM Inter fans (n=205): strong repulsion, but some residual interest.** 8 converted, 36 repelled. Still clearly net-negative (-13.7pp, outside its ±6.1 margin), but 12.7% stayed likely despite the branding — these are people whose basketball interest outweighs the mild rivalry signal.
 
-3. **Positive-ACM Inter fans (n=63): polarization, not repulsion.** 11.1% converted *and* 15.9% were repelled. The net is only -4.8pp. 42.9% stayed likely. These are Inter supporters who hold positive ACM feelings — the branding both attracts and repels within the same sub-group, leaving the net close to zero.
+3. **Positive-ACM Inter fans (n=63): not statistically significant.** 11.1% converted *and* 15.9% were repelled. The net is only -4.8pp, well within its ±12.8 margin (n=63 is too small for precision). 42.9% stayed likely. Directionally this sub-group is close to neutral, but we cannot draw firm conclusions from this cell size.
 
 ### Other Serie A Fans by ACM Sentiment (Q1)
 
-| ACM Sentiment | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. |
-|---|---:|---:|---:|---:|---:|---:|
-| Negative | 55 | 2 (3.6%) | 8 (14.5%) | 6 (10.9%) | 39 (70.9%) | -6 (-10.9pp) |
-| Neutral | 235 | 10 (4.3%) | 36 (15.3%) | 36 (15.3%) | 153 (65.1%) | -26 (-11.1pp) |
-| Positive toward ACM | 120 | 8 (6.7%) | 14 (11.7%) | 61 (50.8%) | 37 (30.8%) | -6 (-5.0pp) |
+| ACM Sentiment | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. | ±ME |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Negative | 55 | 2 (3.6%) | 8 (14.5%) | 6 (10.9%) | 39 (70.9%) | -6 (-10.9pp) | ±10.9 |
+| Neutral | 235 | 10 (4.3%) | 36 (15.3%) | 36 (15.3%) | 153 (65.1%) | -26 (-11.1pp) | ±5.5 |
+| Positive toward ACM | 120 | 8 (6.7%) | 14 (11.7%) | 61 (50.8%) | 37 (30.8%) | -6 (-5.0pp) | ±7.6 |
 
-Similar gradient to Inter fans but lower intensity. Among positive-ACM Other Serie A fans, the repulsion is mild (-5.0pp, n.s.) and 50.8% stayed likely — the branding barely dents their interest.
+Similar gradient to Inter fans but lower intensity. The neutral sub-group is clearly significant (-11.1pp, outside ±5.5). The negative sub-group (-10.9pp) is right at its margin (±10.9, n=55) — borderline. Among positive-ACM Other Serie A fans, the repulsion is mild (-5.0pp) and within its ±7.6 margin — not statistically significant. 50.8% stayed likely — the branding barely dents their interest.
 
 ### Non-Fans by ACM Sentiment (Q1)
 
-| ACM Sentiment | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. |
-|---|---:|---:|---:|---:|---:|---:|
-| Negative | 37 | 1 (2.7%) | 4 (10.8%) | 1 (2.7%) | 31 (83.8%) | -3 (-8.1pp) |
-| Neutral | 316 | 9 (2.8%) | 19 (6.0%) | 13 (4.1%) | 275 (87.0%) | -10 (-3.2pp) |
-| Positive toward ACM | 54 | **8 (14.8%)** | 7 (13.0%) | 12 (22.2%) | 27 (50.0%) | +1 (+1.9pp) |
+| ACM Sentiment | n | Converters | Repelled | Stayed Likely | Stayed Unlikely | Net Conv. | ±ME |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Negative | 37 | 1 (2.7%) | 4 (10.8%) | 1 (2.7%) | 31 (83.8%) | -3 (-8.1pp) | ±11.6 |
+| Neutral | 316 | 9 (2.8%) | 19 (6.0%) | 13 (4.1%) | 275 (87.0%) | -10 (-3.2pp) | ±3.3 |
+| Positive toward ACM | 54 | **8 (14.8%)** | 7 (13.0%) | 12 (22.2%) | 27 (50.0%) | +1 (+1.9pp) | ±14.0 |
 
-The Non-Fan base is mostly inert (81–87% stayed unlikely in the neutral/negative tiers). But the 54 positive-ACM Non-Fans are an interesting micro-pocket: 14.8% convert, nearly matched by 13.0% repelled — true polarization. Small cell (n=54), but directionally consistent with the broader pattern.
+The Non-Fan base is mostly inert (81–87% stayed unlikely in the neutral/negative tiers). None of the Non-Fan sub-group net conversions are statistically significant — the neutral sub-group (-3.2pp) is within its ±3.3 margin, and the other two cells (n=37 and n=54) have margins of ±11.6 and ±14.0 respectively. Directionally consistent with the broader pattern, but the cell sizes are too small for firm conclusions.
 
 ---
 
@@ -126,21 +128,21 @@ The total branding effect for positive-sentiment individuals = coefficients 1 + 
 
 ### Individual coefficients
 
-| # | Coefficient | OR | 95% CI | p-value | Interpretation |
+| # | Coefficient | Effect size | 95% CI | p-value | Interpretation |
 |---|---|---|---|---|---|
-| 1 | `affiliated` | 0.47 | 0.37 – 0.61 | < 0.001 | Neutral-sentiment branding effect: reduces follow odds by ~53% |
+| 1 | `affiliated` | 0.47 | 0.37 – 0.61 | < 0.001 | Neutral-sentiment branding effect: roughly halves follow rate |
 | 2 | `positive_sentiment` | 1.33 | 1.02 – 1.74 | 0.037 | Positive-sentiment baseline edge on unbranded team |
 | 3 | `negative_sentiment` | 1.09 | 0.74 – 1.62 | 0.649 | Negative-sentiment baseline vs neutral (n.s.) |
-| 4 | `aff × positive` | **3.42** | 2.45 – 4.77 | **< 0.001** | Positive sentiment gets a 3.4× extra branding boost |
+| 4 | `aff × positive` | **3.42** | 2.45 – 4.77 | **< 0.001** | Positive sentiment gets a large additional branding boost |
 | 5 | `aff × negative` | **0.44** | 0.25 – 0.77 | **0.004** | Negative sentiment gets an additional branding penalty |
 
 ### Total branding effect by sentiment
 
-| Sentiment | Total Branding OR | 95% CI | p-value | In Plain English |
-|---|---|---|---|---|
-| Neutral toward ACM | 0.47 | 0.37 – 0.61 | < 0.001 | Branding reduces odds by ~53% |
-| **Negative toward ACM** | **0.21** | **0.12 – 0.35** | **< 0.001** | **Branding cuts odds to ~1/5th** |
-| **Positive toward ACM / Fan** | **1.62** | **1.31 – 2.00** | **< 0.001** | **Branding increases odds by ~62%** |
+| Sentiment | Unbranded follow | Branded follow | Change | p-value | In Plain English |
+|---|---:|---:|---:|---|---|
+| Neutral toward ACM | 14.4% | 7.3% | **-7.1pp** | < 0.001 | Branding roughly halves follow intent |
+| **Negative toward ACM** | **15.6%** | **3.7%** | **-11.9pp** | **< 0.001** | **Branding cuts follow intent to ~1/4** |
+| **Positive toward ACM / Fan** | **18.3%** | **26.5%** | **+8.2pp** | **< 0.001** | **Branding lifts follow intent by nearly half** |
 
 ### Why this matters more than the segment model
 
@@ -221,7 +223,9 @@ Follow intent (Q5) measures whether someone would follow the team. But "repelled
 | Stayed likely | 114 | 56 (49.1%) | 50 (43.9%) | 43 (37.7%) | 55 (48.2%) | 29 (25.4%) | 4 (3.5%) | 70 (61.4%) |
 | Stayed unlikely | 198 | 60 (30.3%) | 23 (11.6%) | 34 (17.2%) | 17 (8.6%) | 5 (2.5%) | 101 (51.0%) | 32 (16.2%) |
 
-**93.3% of ACM converters would engage in at least one way, and 50.7% would engage in more than one way.** These are not soft converts — half would watch on free TV, a third would pay for streaming, 31% would attend a game, and 16% would buy merchandise. Their engagement profile is nearly identical to the "stayed likely" group, suggesting the branding genuinely unlocked a new high-value audience tier.
+*MEs (95%): Converter (n=75) ±6–11pp per cell. Repelled (n=15) ±13–25pp — too small for reliable per-cell conclusions. Stayed likely (n=114) ±3–9pp. Stayed unlikely (n=198) ±2–7pp.*
+
+**93.3% of ACM converters would engage in at least one way (±5.6), and 50.7% would engage in more than one way (±11.3).** These are not soft converts — half would watch on free TV (±11.3), a third would pay for streaming (±10.8), 31% would attend a game (±10.4), and 16% would buy merchandise (±8.3). Their engagement profile is nearly identical to the "stayed likely" group, suggesting the branding genuinely unlocked a new high-value audience tier.
 
 #### Inter Milan Fans
 
@@ -232,7 +236,9 @@ Follow intent (Q5) measures whether someone would follow the team. But "repelled
 | Stayed likely | 64 | 42 (65.6%) | 25 (39.1%) | 19 (29.7%) | 29 (45.3%) | 12 (18.8%) | 5 (7.8%) | 36 (56.2%) |
 | Stayed unlikely | 245 | 27 (11.0%) | 10 (4.1%) | 11 (4.5%) | 10 (4.1%) | 1 (0.4%) | 195 (79.6%) | 8 (3.3%) |
 
-**53.8% of repelled Inter fans (43 of 80) would still engage in at least one way.** They are not attending games or buying merch at meaningful rates, but nearly a quarter would watch on free TV and 22.5% would follow highlights/social. Being repelled from "likely to follow" does not mean being lost to the franchise entirely — it means downgraded from committed fan to casual viewer.
+*MEs (95%): Converter (n=17) ±11–24pp — too small for reliable per-cell conclusions. Repelled (n=80) ±2–11pp. Stayed likely (n=64) ±7–12pp. Stayed unlikely (n=245) ±1–5pp.*
+
+**53.8% of repelled Inter fans (43 of 80) would still engage in at least one way (±10.9).** They are not attending games or buying merch at meaningful rates, but nearly a quarter would watch on free TV (±9.3) and 22.5% would follow highlights/social (±9.2). Being repelled from "likely to follow" does not mean being lost to the franchise entirely — it means downgraded from committed fan to casual viewer.
 
 #### Other Serie A Fans
 
@@ -243,17 +249,19 @@ Follow intent (Q5) measures whether someone would follow the team. But "repelled
 | Stayed likely | 103 | 48 (46.6%) | 35 (34.0%) | 34 (33.0%) | 31 (30.1%) | 26 (25.2%) | 8 (7.8%) | 49 (47.6%) |
 | Stayed unlikely | 229 | 31 (13.5%) | 18 (7.9%) | 20 (8.7%) | 16 (7.0%) | 6 (2.6%) | 153 (66.8%) | 13 (5.7%) |
 
-Similar pattern to Inter: 55.2% of repelled Other Serie A fans would still engage, primarily through free TV and highlights.
+*MEs (95%): Converter (n=20) ±10–22pp — too small for reliable per-cell conclusions. Repelled (n=58) ±5–13pp. Stayed likely (n=103) ±5–10pp. Stayed unlikely (n=229) ±2–6pp.*
+
+Similar pattern to Inter: 55.2% of repelled Other Serie A fans would still engage (±12.8), primarily through free TV and highlights.
 
 ### Why repelled fans were repelled (Q5a)
 
 Among the 80 repelled Inter fans, all 80 answered Q5a (the question is filtered to those who rated the branded team lower):
 
-| Reason | Inter (n=80) | Other SA (n=58) | Non-Fan (n=30) |
+| Reason | Inter (n=80) ±ME | Other SA (n=58) ±ME | Non-Fan (n=30) ±ME |
 |---|---:|---:|---:|
-| I prefer a team that represents Milan as a city rather than one football club | **40 (50.0%)** | 26 (44.8%) | 14 (46.7%) |
-| I support a different football club and therefore would be less interested | 31 (38.8%) | 25 (43.1%) | 5 (16.7%) |
-| I don't like football branding in basketball | 9 (11.2%) | 6 (10.3%) | 8 (26.7%) |
+| I prefer a team that represents Milan as a city rather than one football club | **40 (50.0% ±11.0)** | 26 (44.8% ±12.8) | 14 (46.7% ±17.9) |
+| I support a different football club and therefore would be less interested | 31 (38.8% ±10.7) | 25 (43.1% ±12.7) | 5 (16.7% ±13.3) |
+| I don't like football branding in basketball | 9 (11.2% ±6.9) | 6 (10.3% ±7.8) | 8 (26.7% ±15.8) |
 
 **The top reason across all segments is a preference for city identity over club identity** — "I prefer a team that represents Milan as a city." This is not anti-basketball or anti-NBA. It is specifically anti-single-club-branding. Combined with the 38.8% of Inter fans who cite rival-club loyalty, this confirms the repulsion is an identity-framing problem amenable to design choices (naming, visual identity, positioning).
 
@@ -261,12 +269,12 @@ Only 11% of repelled Inter fans object to football branding in basketball in pri
 
 ### Why would repelled fans support the team anyway? (Q10)
 
-| Support reason | Repelled Inter (n=80) | Repelled Other SA (n=58) |
+| Support reason | Repelled Inter (n=80) ±ME | Repelled Other SA (n=58) ±ME |
 |---|---:|---:|
-| Because it is affiliated with AC Milan | **0 (0.0%)** | 3 (5.2%) |
-| Because it represents Milan, regardless of club | **46 (57.5%)** | 18 (31.0%) |
-| Because it is Italy's team in the league | 23 (28.7%) | 27 (46.6%) |
-| I would not support a Milan NBA team | 11 (13.8%) | 10 (17.2%) |
+| Because it is affiliated with AC Milan | **0 (0.0%)** | 3 (5.2% ±5.7) |
+| Because it represents Milan, regardless of club | **46 (57.5% ±10.8)** | 18 (31.0% ±11.9) |
+| Because it is Italy's team in the league | 23 (28.7% ±9.9) | 27 (46.6% ±12.8) |
+| I would not support a Milan NBA team | 11 (13.8% ±7.5) | 10 (17.2% ±9.7) |
 
 **Zero repelled Inter fans cite the ACM affiliation as their reason to support.** But 57.5% would support because the team represents Milan, and 28.7% because it's Italy's team. The city and national identity hooks work even on the repelled — the club identity hook does not.
 
@@ -278,30 +286,30 @@ Categories are mutually exclusive: "any paid" means the respondent selected at l
 
 | Category | n | Any paid | Free only | Would not engage |
 |---|---:|---:|---:|---:|
-| Converter | 75 | **43 (57.3%)** | 27 (36.0%) | 5 (6.7%) |
-| Repelled | 15 | 5 (33.3%) | 5 (33.3%) | 5 (33.3%) |
-| Stayed likely | 114 | 86 (75.4%) | 24 (21.1%) | 4 (3.5%) |
-| Stayed unlikely | 198 | 38 (19.2%) | 59 (29.8%) | 101 (51.0%) |
+| Converter | 75 | **43 (57.3% ±11.2)** | 27 (36.0% ±10.9) | 5 (6.7% ±5.7) |
+| Repelled | 15 | 5 (33.3% ±23.9) | 5 (33.3% ±23.9) | 5 (33.3% ±23.9) |
+| Stayed likely | 114 | 86 (75.4% ±7.9) | 24 (21.1% ±7.5) | 4 (3.5% ±3.4) |
+| Stayed unlikely | 198 | 38 (19.2% ±5.5) | 59 (29.8% ±6.4) | 101 (51.0% ±7.0) |
 
 #### Inter Milan Fans
 
 | Category | n | Any paid | Free only | Would not engage |
 |---|---:|---:|---:|---:|
-| Converter | 17 | 9 (52.9%) | 7 (41.2%) | 1 (5.9%) |
-| **Repelled** | **80** | **21 (26.2%)** | **22 (27.5%)** | **37 (46.2%)** |
-| Stayed likely | 64 | 43 (67.2%) | 16 (25.0%) | 5 (7.8%) |
-| Stayed unlikely | 245 | 21 (8.6%) | 29 (11.8%) | 195 (79.6%) |
+| Converter | 17 | 9 (52.9% ±23.7) | 7 (41.2% ±23.4) | 1 (5.9% ±11.2) |
+| **Repelled** | **80** | **21 (26.2% ±9.6)** | **22 (27.5% ±9.8)** | **37 (46.2% ±10.9)** |
+| Stayed likely | 64 | 43 (67.2% ±11.5) | 16 (25.0% ±10.6) | 5 (7.8% ±6.6) |
+| Stayed unlikely | 245 | 21 (8.6% ±3.5) | 29 (11.8% ±4.0) | 195 (79.6% ±5.0) |
 
 #### Other Serie A Fans
 
 | Category | n | Any paid | Free only | Would not engage |
 |---|---:|---:|---:|---:|
-| Converter | 20 | 4 (20.0%) | 11 (55.0%) | 5 (25.0%) |
-| Repelled | 58 | 11 (19.0%) | 21 (36.2%) | 26 (44.8%) |
-| Stayed likely | 103 | 62 (60.2%) | 33 (32.0%) | 8 (7.8%) |
-| Stayed unlikely | 229 | 37 (16.2%) | 39 (17.0%) | 153 (66.8%) |
+| Converter | 20 | 4 (20.0% ±17.5) | 11 (55.0% ±21.8) | 5 (25.0% ±19.0) |
+| Repelled | 58 | 11 (19.0% ±10.1) | 21 (36.2% ±12.4) | 26 (44.8% ±12.8) |
+| Stayed likely | 103 | 62 (60.2% ±9.5) | 33 (32.0% ±9.0) | 8 (7.8% ±5.2) |
+| Stayed unlikely | 229 | 37 (16.2% ±4.8) | 39 (17.0% ±4.9) | 153 (66.8% ±6.1) |
 
-57.3% of ACM converters would engage in at least one paid way — nearly as high as the stayed-likely group (75.4%). Among repelled Inter fans, 26.2% would still pay (mostly paid streaming), while another 27.5% would engage through free channels only. The repelled are not high-value commercial prospects, but they are not entirely zero-value either.
+57.3% of ACM converters would engage in at least one paid way (±11.2) — nearly as high as the stayed-likely group (75.4% ±7.9). Among repelled Inter fans, 26.2% would still pay (±9.6, mostly paid streaming), while another 27.5% would engage through free channels only (±9.8). The repelled are not high-value commercial prospects, but they are not entirely zero-value either.
 
 ### Engagement intensity tiers
 
@@ -315,38 +323,38 @@ Three tiers, not mutually exclusive (a respondent can appear in multiple tiers):
 
 | Category | n | High (attend) | Medium (paid TV / merch) | Low (free TV / highlights) | Would not engage |
 |---|---:|---:|---:|---:|---:|
-| Converter | 75 | **23 (30.7%)** | **35 (46.7%)** | 51 (68.0%) | 5 (6.7%) |
-| Repelled | 15 | 1 (6.7%) | 5 (33.3%) | 7 (46.7%) | 5 (33.3%) |
-| Stayed likely | 114 | 55 (48.2%) | 58 (50.9%) | 80 (70.2%) | 4 (3.5%) |
-| Stayed unlikely | 198 | 17 (8.6%) | 28 (14.1%) | 79 (39.9%) | 101 (51.0%) |
+| Converter | 75 | **23 (30.7% ±10.4)** | **35 (46.7% ±11.3)** | 51 (68.0% ±10.6) | 5 (6.7% ±5.7) |
+| Repelled | 15 | 1 (6.7% ±12.7) | 5 (33.3% ±23.9) | 7 (46.7% ±25.2) | 5 (33.3% ±23.9) |
+| Stayed likely | 114 | 55 (48.2% ±9.2) | 58 (50.9% ±9.2) | 80 (70.2% ±8.4) | 4 (3.5% ±3.4) |
+| Stayed unlikely | 198 | 17 (8.6% ±3.9) | 28 (14.1% ±4.8) | 79 (39.9% ±6.8) | 101 (51.0% ±7.0) |
 
 #### Inter Milan Fans
 
 | Category | n | High (attend) | Medium (paid TV / merch) | Low (free TV / highlights) | Would not engage |
 |---|---:|---:|---:|---:|---:|
-| Converter | 17 | 5 (29.4%) | 6 (35.3%) | 9 (52.9%) | 1 (5.9%) |
-| **Repelled** | **80** | **10 (12.5%)** | **12 (15.0%)** | **31 (38.8%)** | **37 (46.2%)** |
-| Stayed likely | 64 | 29 (45.3%) | 28 (43.8%) | 48 (75.0%) | 5 (7.8%) |
-| Stayed unlikely | 245 | 10 (4.1%) | 11 (4.5%) | 36 (14.7%) | 195 (79.6%) |
+| Converter | 17 | 5 (29.4% ±21.7) | 6 (35.3% ±22.7) | 9 (52.9% ±23.7) | 1 (5.9% ±11.2) |
+| **Repelled** | **80** | **10 (12.5% ±7.2)** | **12 (15.0% ±7.8)** | **31 (38.8% ±10.7)** | **37 (46.2% ±10.9)** |
+| Stayed likely | 64 | 29 (45.3% ±12.2) | 28 (43.8% ±12.2) | 48 (75.0% ±10.6) | 5 (7.8% ±6.6) |
+| Stayed unlikely | 245 | 10 (4.1% ±2.5) | 11 (4.5% ±2.6) | 36 (14.7% ±4.4) | 195 (79.6% ±5.0) |
 
 #### Other Serie A Fans
 
 | Category | n | High (attend) | Medium (paid TV / merch) | Low (free TV / highlights) | Would not engage |
 |---|---:|---:|---:|---:|---:|
-| Converter | 20 | 3 (15.0%) | 2 (10.0%) | 14 (70.0%) | 5 (25.0%) |
-| Repelled | 58 | 4 (6.9%) | 9 (15.5%) | 23 (39.7%) | 26 (44.8%) |
-| Stayed likely | 103 | 31 (30.1%) | 49 (47.6%) | 64 (62.1%) | 8 (7.8%) |
-| Stayed unlikely | 229 | 16 (7.0%) | 23 (10.0%) | 49 (21.4%) | 153 (66.8%) |
+| Converter | 20 | 3 (15.0% ±15.6) | 2 (10.0% ±13.1) | 14 (70.0% ±20.1) | 5 (25.0% ±19.0) |
+| Repelled | 58 | 4 (6.9% ±6.5) | 9 (15.5% ±9.3) | 23 (39.7% ±12.6) | 26 (44.8% ±12.8) |
+| Stayed likely | 103 | 31 (30.1% ±8.9) | 49 (47.6% ±9.6) | 64 (62.1% ±9.4) | 8 (7.8% ±5.2) |
+| Stayed unlikely | 229 | 16 (7.0% ±3.3) | 23 (10.0% ±3.9) | 49 (21.4% ±5.3) | 153 (66.8% ±6.1) |
 
-The intensity gradient sharpens the commercial picture. Among the 75 ACM converters: 31% would attend a game (high intensity), 47% would pay for streaming or buy merch (medium), and 68% would engage via free channels (low). These tiers overlap — the point is that nearly a third of converters are signaling willingness to show up in person.
+The intensity gradient sharpens the commercial picture. Among the 75 ACM converters: 31% would attend a game (±10.4), 47% would pay for streaming or buy merch (±11.3), and 68% would engage via free channels (±10.6). These tiers overlap — the point is that nearly a third of converters are signaling willingness to show up in person.
 
-Among the 80 repelled Inter fans: only 12.5% would attend and 15% would pay for streaming/merch, but 38.8% would still watch via free channels or follow highlights. The repelled shift almost entirely from high/medium-intensity engagement to low-intensity or disengagement — they are lost as paying fans but partially retained as casual viewers.
+Among the 80 repelled Inter fans: only 12.5% would attend (±7.2) and 15% would pay for streaming/merch (±7.8), but 38.8% would still watch via free channels or follow highlights (±10.7). The repelled shift almost entirely from high/medium-intensity engagement to low-intensity or disengagement — they are lost as paying fans but partially retained as casual viewers.
 
 ### What this means
 
-1. **ACM converters are commercially valuable.** 93% would engage, with strong intent across paid streaming (35%), game attendance (31%), and merch (16%). These are not hypothetical fans — they are signaling real behavioral commitment.
+1. **ACM converters are commercially valuable.** 93% would engage (±5.6), with strong intent across paid streaming (35% ±10.8), game attendance (31% ±10.4), and merch (16% ±8.3). These are not hypothetical fans — they are signaling real behavioral commitment. The engagement rate is robust even accounting for the margin of error.
 
-2. **Repelled ≠ lost.** Over half of repelled Inter and Other Serie A fans would still engage, primarily through low-commitment channels (free TV, highlights). The branding pushes them from "fan" to "casual viewer," not from "fan" to "gone."
+2. **Repelled ≠ lost.** Over half of repelled Inter (53.8% ±10.9) and Other Serie A fans (55.2% ±12.8) would still engage, primarily through low-commitment channels (free TV, highlights). The branding pushes them from "fan" to "casual viewer," not from "fan" to "gone."
 
 3. **The repelled want a Milan team, not an ACM team.** Q5a and Q10 converge on the same finding: repelled fans object to the club-specific identity, not to the franchise concept. 50% of repelled Inter fans explicitly prefer a city-based identity. 57.5% would support the team as a Milan representative. This is a naming/positioning lever, not a fundamental market barrier.
 
@@ -373,25 +381,27 @@ The key assumption: Q8 engagement propensity is an individual characteristic. Br
 
 #### Sample-weighted (equal segment quotas)
 
-| Segment | n | Unbranded paid | Branded paid | Delta |
-|---|---:|---:|---:|---:|
-| **All** | 1,625 | 248 (15.3%) | 267 (16.4%) | **+1.2pp** |
-| AC Milan Fan | 402 | 91 (22.6%) | 129 (32.1%) | +9.5pp |
-| Inter Milan Fan | 406 | 64 (15.8%) | 52 (12.8%) | -3.0pp |
-| Other Serie A Fan | 410 | 73 (17.8%) | 66 (16.1%) | -1.7pp |
-| Non-Fan | 407 | 20 (4.9%) | 20 (4.9%) | +0.0pp |
+| Segment | n | Unbranded paid | Branded paid | Delta | ±ME |
+|---|---:|---:|---:|---:|---:|
+| **All** | 1,625 | 248 (15.3%) | 267 (16.4%) | **+1.2pp** | ±1.2 |
+| AC Milan Fan | 402 | 91 (22.6%) | 129 (32.1%) | +9.5pp | ±3.3 |
+| Inter Milan Fan | 406 | 64 (15.8%) | 52 (12.8%) | -3.0pp | ±2.6 |
+| Other Serie A Fan | 410 | 73 (17.8%) | 66 (16.1%) | -1.7pp | ±1.8 |
+| Non-Fan | 407 | 20 (4.9%) | 20 (4.9%) | +0.0pp | ±1.8 |
 
-#### Population-weighted (YouGov Profiles+ Italy)
+ACM's +9.5pp monetization gain is clearly significant (outside ±3.3). Inter's -3.0pp is borderline (just outside ±2.6). Other Serie A's -1.7pp and Non-Fan's +0.0pp are within their margins — not significant.
 
-| Segment | Pop weight | Unbranded paid | Branded paid | Delta |
-|---|---:|---:|---:|---:|
-| AC Milan Fan | 10.2% | 22.6% | 32.1% | +9.5pp |
-| Inter Milan Fan | 12.0% | 15.8% | 12.8% | -3.0pp |
-| Other Serie A Fan | 41.7% | 17.8% | 16.1% | -1.7pp |
-| Non-Fan | 36.1% | 4.9% | 4.9% | +0.0pp |
-| **National** | **100%** | **13.4%** | **13.3%** | **-0.1pp** |
+#### Population-weighted (YouGov Profiles+ Italy, normalized — see unified weight table at end)
 
-**Full ACM branding is monetization-neutral nationally (-0.1pp).** Follow intent drops by -3.2pp, but monetization barely moves because the people gained by branding are much more monetizable than the people lost.
+| Segment | Pop weight | Unbranded paid | Branded paid | Delta | ±ME |
+|---|---:|---:|---:|---:|---:|
+| AC Milan Fan | 10.2% | 22.6% | 32.1% | +9.5pp | ±3.3 |
+| Inter Milan Fan | 12.0% | 15.8% | 12.8% | -3.0pp | ±2.6 |
+| Other Serie A Fan | 41.7% | 17.8% | 16.1% | -1.7pp | ±1.8 |
+| Non-Fan | 36.1% | 4.9% | 4.9% | +0.0pp | ±1.8 |
+| **National** | **100%** | **13.4%** | **13.3%** | **-0.1pp** | **95% CI [-1.1, +1.0]** |
+
+**Full ACM branding is monetization-neutral nationally (-0.1pp, 95% CI [-1.1, +1.0]).** The CI spans zero — this delta is not statistically distinguishable from zero. Follow intent drops by -3.2pp, but monetization barely moves because the people gained by branding are much more monetizable than the people lost.
 
 ### Why monetization holds despite follow losses
 
@@ -411,9 +421,11 @@ Converters have **2× the paid-intent rate** of repelled (48.5% vs 24.0%). There
 | Positive / Fan | 29.1% | 27.7% | 33.6% | +5.9pp |
 | Neutral | 58.0% | 7.4% | 5.2% | -2.2pp |
 | Negative | 13.0% | 6.5% | 5.7% | -0.9pp |
-| **National** | **100%** | **13.2%** | **13.5%** | **+0.3pp** |
+| **National** | **100%** | **13.2%** | **13.5%** | **+0.3pp 95% CI [-0.7, +1.4]** |
 
-The monetization gain is concentrated entirely in the positive-sentiment group (+5.9pp). Neutrals lose -2.2pp and negatives -0.9pp, but from much lower bases. The national figure is essentially flat.
+The monetization gain is concentrated entirely in the positive-sentiment group (+5.9pp). Neutrals lose -2.2pp and negatives -0.9pp, but from much lower bases. The national figure is essentially flat — the 95% CI [-0.7, +1.4] spans zero, so this small positive delta is not statistically distinguishable from zero.
+
+*95% CIs for national monetization deltas are from 500 bootstrap iterations (resampling persons with replacement). Both segment-weighted and sentiment-weighted CIs span zero, confirming that the monetization effect is indistinguishable from flat.*
 
 ### Value concentration
 
@@ -438,9 +450,9 @@ Merch is the only sub-component that clearly improves (+0.7pp). Paid TV and atte
 
 ### What this means
 
-1. **Monetization is not the problem.** Full ACM branding is net-negative for follow intent (-3.2pp nationally) but monetization-neutral (-0.1pp). The NBA cannot argue that ACM branding destroys commercial value — it doesn't.
+1. **Monetization is not materially damaged.** The monetization effect is too small for our sample (n=1,625) to detect with confidence. Our best estimate is approximately flat (-0.1pp segment-weighted, +0.3pp sentiment-weighted), and both 95% CIs span zero. Even at the worst end of the confidence interval, monetization damage is bounded at roughly -1pp nationally. Full ACM branding does not meaningfully reduce national paid-intent.
 
-2. **But monetization isn't the argument either.** Flat is not positive. A -3.2pp follow loss that produces flat monetization means branding is trading breadth for depth — fewer fans, but higher-value ones. This is a defensible strategy if the goal is a high-LTV niche franchise, but it limits total addressable market.
+2. **But monetization isn't the argument either.** Flat is not positive. A -3.3pp follow loss that produces flat monetization means branding is trading breadth for depth — fewer fans, but higher-value ones. This is a defensible strategy if the goal is a high-LTV niche franchise, but it limits total addressable market.
 
 3. **The real upside is in Milan-first.** If Milan-first branding softens the neutral follow penalty from -7.1pp to -2.5pp (as the sentiment regression estimates), monetization should *improve* — because the positive-sentiment activation is preserved while fewer moderate fans are lost. The +3.0pp follow gain under Milan-first would flow through to paid-intent as well, since the new followers would include both high-intent positive fans and moderate neutral fans.
 
@@ -448,4 +460,22 @@ Merch is the only sub-component that clearly improves (+0.7pp). Paid TV and atte
 
 ---
 
-*Source: YouGov survey, February 2026 (n=1,625 Italian respondents). Binary follow classification: top-2 box (Very likely + Somewhat likely = 1). Engagement behaviors: Q8 (multi-select), Q9 (primary mode), Q10 (support reason), Q5a (reason for lower branded rating). Paid-intent: Q8_2 (paid TV) or Q8_4 (attend) or Q8_5 (merch). Population weights: YouGov Profiles+ Italy segment estimates. Full regression context: `regression_analysis_writeup_2.md`. Code: `switchers_analysis.py`.*
+---
+
+## Unified Population Weight Table
+
+YouGov Profiles+ Italy estimates the share of Italian adults in each segment based on football club support (S5) and supporter identity (Q1). Raw estimates sum to 94.2%. The remaining 5.8% support non-Serie-A clubs or are unclassifiable. We normalize to 100% for population weighting, assuming the excluded 5.8% distributes proportionally.
+
+| Segment | Definition | Raw (YouGov) | Normalized |
+|---|---|---:|---:|
+| AC Milan Fan | Supports AC Milan (S5) and identifies as supporter (Q1) | 9.6% | 10.2% |
+| Inter Milan Fan | Supports Inter Milan (S5) and identifies as supporter (Q1) | 11.3% | 12.0% |
+| Other Serie A Fan | Supports another Serie A club (S5) | 39.3% | 41.7% |
+| Non-Fan | Does not support any Serie A club (S5) | 34.0% | 36.1% |
+| **Total** | | **94.2%** | **100.0%** |
+
+**All population-weighted results use the normalized weights** (rightmost column). The two sets of numbers that appeared in earlier documents (9.6/11.3/39.3/34.0 vs 10.2/12.0/41.7/36.1) are the same data before and after normalization to sum to 100%.
+
+---
+
+*Source: YouGov survey, February 2026 (n=1,625 Italian respondents). Binary follow classification: top-2 box (Very likely + Somewhat likely = 1). Engagement behaviors: Q8 (multi-select), Q9 (primary mode), Q10 (support reason), Q5a (reason for lower branded rating). Paid-intent: Q8_2 (paid TV) or Q8_4 (attend) or Q8_5 (merch). Population weights: YouGov Profiles+ Italy, normalized to 100% survey universe. 95% CIs on monetization: 500 bootstrap iterations (person-level resampling). Full regression context: `regression_analysis_writeup_2.md`. Code: `switchers_analysis.py`, `sensitivity_matrix_analysis.py`.*

@@ -2,19 +2,51 @@
 
 ## The Question
 
-Full ACM branding is net-negative nationally. The segment regression shows +14.9pp for ACM fans offset by -15.5pp for Inter fans, netting to roughly -3pp across the sample. But the segment model conflates club identity (fixed) with emotional sentiment (malleable). If the true mechanism is sentiment, then branding architecture becomes a tunable lever. The question is: **what is the national impact under (a) full ACM branding vs (b) a Milan-first architecture where the neutral-sentiment penalty is reduced?**
+Full ACM branding is net-negative nationally. The segment regression shows +14.9pp for ACM fans offset by -15.5pp for Inter fans, netting to roughly -3pp across the sample. But the segment model conflates club identity (fixed) with emotional sentiment (malleable). If the true mechanism is sentiment, then branding architecture becomes a tunable lever. The question is: **how does the national impact change as we vary both the neutral-sentiment penalty and the strength of positive-sentiment activation?**
 
 ## The Answer
 
-Population-weighted using YouGov Profiles+ Italy segment estimates (ACM 9.6%, Inter 11.3%, Other Serie A 39.3%, Non-Fan 34.0%):
+### Sensitivity matrix: National follow lift (pp) vs unbranded baseline
 
-| Scenario | Positive (29.1%) | Neutral (58.0%) | Negative (13.0%) | **National Weighted** |
-|---|---:|---:|---:|---:|
-| Unbranded baseline | 18.3% | 14.4% | 15.6% | **15.7%** |
-| Full ACM branding | 26.6% (+8.3pp) | 7.4% (-7.1pp) | 3.7% (-11.9pp) | **12.5% (-3.2pp)** |
-| Milan-first branding | 38.0% (+19.7pp) | 11.9% (-2.5pp) | 6.1% (-9.5pp) | **18.7% (+3.0pp)** |
+The regression model decomposes the branding effect into three parts:
 
-**Full ACM branding is net-negative nationally (-3.2pp).** Milan-first branding flips it to net-positive (+3.0pp) — a +6.2pp swing from a single design lever. The shift comes from two sources: neutrals lose only -2.5pp instead of -7.1pp, and positive-sentiment individuals lift by +19.7pp instead of +8.3pp (less base-level friction lets more of their positive activation come through).
+1. **Neutral base penalty**: branding cuts neutral-sentiment follow from 14.4% to 7.3% (-7.1pp, roughly halving follow intent)
+2. **Positive activation**: positive-sentiment follow rises from 18.3% to 26.5% (+8.2pp, nearly a 45% increase in follow intent)
+3. **Negative repulsion**: negative-sentiment follow drops from 15.6% to 3.7% (-11.9pp, cutting follow intent to roughly one-quarter)
+
+Milan-first branding can plausibly soften the neutral base penalty (less identity salience → less friction for neutrals). But it might also attenuate the positive activation (less ACM signal → less enthusiasm among supporters). The matrix below crosses both dimensions. The negative interaction is held fixed: softer crest prominence plausibly reduces neutral friction and may slightly reduce positive activation, but hostile identity reactions are likely triggered by the mere association with ACM, not by its visual prominence. As long as the team is known to be ACM-affiliated — which it would be under any partnership structure — negative-sentiment individuals will react accordingly.
+
+| | Positive activation 100% | Positive activation 80% | Positive activation 60% |
+|---|---:|---:|---:|
+| **Neutral: 14.4% → 7.3%** (full ACM, observed) | **-3.3pp** [-5.2, -1.3] | -4.5pp [-6.3, -2.6] | -5.8pp [-7.5, -4.1] |
+| **Neutral: 14.4% → 10.2%** (moderate softening) | +0.7pp [-1.5, +3.0] | -0.7pp [-2.8, +1.5] | -2.3pp [-4.2, -0.3] |
+| **Neutral: 14.4% → 11.9%** (Milan-first) | **+3.0pp** [+0.7, +5.4] | +1.5pp [-0.6, +3.8] | -0.2pp [-2.2, +1.9] |
+
+*95% CIs in brackets, derived from 10,000 parametric draws from the GEE covariance matrix. Population-weighted using YouGov Profiles+ Italy (see unified weight table below). Unbranded national baseline: 15.7%.*
+
+### How to read the matrix
+
+**Rows** vary the neutral base penalty — how much branding friction neutrals face. The top row (14.4% → 7.3%, a 7.1pp drop) is the current full ACM branding (observed). The bottom row (14.4% → 11.9%, a 2.5pp drop) represents a Milan-first architecture where the identity trigger is softened.
+
+**Columns** vary how much of the positive activation survives the softer branding. 100% means the full positive lift (+8.2pp, from 18.3% to 26.5%) is retained. 80% means positive activation is attenuated by 20%. 60% means it is attenuated by 40%.
+
+**Key readings:**
+
+1. **Top-left cell (-3.3pp):** Current full ACM branding. Net-negative nationally. The CI [-5.2, -1.3] excludes zero — this penalty is statistically significant.
+
+2. **Bottom-left cell (+3.0pp):** Milan-first with full positive activation retained. Net-positive nationally. The CI [+0.7, +5.4] excludes zero — this lift is statistically significant if positive activation is fully preserved.
+
+3. **Bottom-middle cell (+1.5pp):** Milan-first with 20% positive attenuation. Still positive, but the CI [-0.6, +3.8] spans zero — no longer significantly different from unbranded.
+
+4. **Bottom-right cell (-0.2pp):** Milan-first with 40% positive attenuation. Essentially flat. Milan-first only works if most of the positive activation survives.
+
+5. **Middle row (neutral drop halved to -4.2pp):** Even moderate softening of the neutral penalty gets close to breakeven. If positive activation is fully retained, the national lift is +0.7pp (CI spans zero), but the penalty is gone.
+
+### The strategic implication
+
+Milan-first branding is net-positive nationally **if** at least ~80% of the positive-sentiment activation is retained. If softer branding erodes more than ~20–25% of the positive lift, the gain from reduced neutral friction is offset by the loss of positive activation, and the result is indistinguishable from unbranded.
+
+This means the design challenge is specific: **build a brand architecture that softens the ACM identity cue enough to reduce the neutral follow-rate drop (from -7.1pp toward -2.5pp) while preserving enough ACM signal to maintain positive-sentiment activation above ~80% of full strength.**
 
 ---
 
@@ -29,32 +61,32 @@ To isolate the psychological mechanism, we replace club segment with ACM sentime
 
 | Sentiment | Unbranded | Full ACM Branded | Change | In Plain English |
 |---|---:|---:|---:|---|
-| Neutral toward ACM | 14.4% | 7.4% | **-7.1pp** | Branding roughly halves follow intent |
+| Neutral toward ACM | 14.4% | 7.3% | **-7.1pp** | Branding roughly halves follow intent |
 | **Negative toward ACM** | **15.6%** | **3.7%** | **-11.9pp** | **Branding cuts follow intent to ~1/4** |
-| **Positive toward ACM / Fan** | **18.3%** | **26.6%** | **+8.3pp** | **Branding lifts follow intent by nearly half** |
+| **Positive toward ACM / Fan** | **18.3%** | **26.5%** | **+8.2pp** | **Branding lifts follow intent by nearly half** |
 
 Branding is an identity amplifier: it activates positive sentiment and suppresses negative sentiment. The direction and magnitude depend on how the individual *feels* about ACM, not which club they support.
 
 ### The gradient holds within every segment
 
-| Segment | AC Milan Sentiment (Q1) | n | Unbranded | Branded | Lift |
-|---|---|---:|---:|---:|---:|
-| AC Milan Fan | Strong identifier | 180 | 40.0% | 59.4% | +19.4pp |
-| AC Milan Fan | Casual supporter | 222 | 25.7% | 36.9% | +11.3pp |
-| | | | | | |
-| Inter Milan Fan | Negative toward ACM | 138 | 32.6% | 9.4% | -23.2pp |
-| Inter Milan Fan | Neutral toward ACM | 205 | 30.2% | 16.6% | -13.7pp |
-| Inter Milan Fan | Positive toward ACM | 63 | 58.7% | 54.0% | -4.8pp |
-| | | | | | |
-| Other Serie A Fan | Negative toward ACM | 55 | 25.5% | 14.5% | -10.9pp |
-| Other Serie A Fan | Neutral toward ACM | 235 | 30.6% | 19.6% | -11.1pp |
-| Other Serie A Fan | Positive toward ACM | 120 | 62.5% | 57.5% | -5.0pp |
-| | | | | | |
-| Non-Fan | Negative toward ACM | 37 | 13.5% | 5.4% | -8.1pp |
-| Non-Fan | Neutral toward ACM | 316 | 10.1% | 7.0% | -3.2pp |
-| Non-Fan | Positive toward ACM | 54 | 35.2% | 37.0% | +1.9pp |
+| Segment | AC Milan Sentiment (Q1) | n | Unbranded | Branded | Lift | ±ME |
+|---|---|---:|---:|---:|---:|---:|
+| AC Milan Fan | Strong identifier | 180 | 40.0% | 59.4% | +19.4pp | ±7.2 |
+| AC Milan Fan | Casual supporter | 222 | 25.7% | 36.9% | +11.3pp | ±5.3 |
+| | | | | | | |
+| Inter Milan Fan | Negative toward ACM | 138 | 32.6% | 9.4% | -23.2pp | ±7.6 |
+| Inter Milan Fan | Neutral toward ACM | 205 | 30.2% | 16.6% | -13.7pp | ±6.1 |
+| Inter Milan Fan | Positive toward ACM | 63 | 58.7% | 54.0% | -4.8pp | ±12.8 |
+| | | | | | | |
+| Other Serie A Fan | Negative toward ACM | 55 | 25.5% | 14.5% | -10.9pp | ±10.9 |
+| Other Serie A Fan | Neutral toward ACM | 235 | 30.6% | 19.6% | -11.1pp | ±5.5 |
+| Other Serie A Fan | Positive toward ACM | 120 | 62.5% | 57.5% | -5.0pp | ±7.6 |
+| | | | | | | |
+| Non-Fan | Negative toward ACM | 37 | 13.5% | 5.4% | -8.1pp | ±11.6 |
+| Non-Fan | Neutral toward ACM | 316 | 10.1% | 7.0% | -3.2pp | ±3.3 |
+| Non-Fan | Positive toward ACM | 54 | 35.2% | 37.0% | +1.9pp | ±14.0 |
 
-Within every segment, repulsion scales with sentiment. Inter fans who feel negatively: -23.2pp. Inter fans who feel positively: -4.8pp. Same gradient in Other Serie A (-10.9pp → -5.0pp) and Non-Fans (-8.1pp → +1.9pp).
+Within every segment, repulsion scales with sentiment. Inter fans who feel negatively: -23.2pp ±7.6 (significant). Inter fans who feel positively: -4.8pp ±12.8 (not significant, n=63). Same gradient in Other Serie A (-10.9pp → -5.0pp) and Non-Fans (-8.1pp → +1.9pp), though small sub-groups (n < 60) have wide margins.
 
 ---
 
@@ -62,126 +94,110 @@ Within every segment, repulsion scales with sentiment. Inter fans who feel negat
 
 ### Inputs
 
-**Sentiment distribution** (from the sample, proxy for Italy):
+**Sentiment distribution — sample vs population:**
 
-| Sentiment | n | Share |
-|---|---:|---:|
-| Positive / Fan | 639 | 39.3% |
-| Neutral | 756 | 46.5% |
-| Negative | 230 | 14.2% |
+| Sentiment | n | Sample share | Population share (weighted) |
+|---|---:|---:|---:|
+| Positive / Fan | 639 | 39.3% | 29.1% |
+| Neutral | 756 | 46.5% | 58.0% |
+| Negative | 230 | 14.2% | 13.0% |
 
-Neutrals are the largest group. They are also the group whose response is most sensitive to branding architecture — which is why they are the lever.
+The sample overrepresents positive-sentiment individuals (39% vs 29%) because ACM fans were ~25% of the survey sample but only ~10% of Italy. After reweighting through YouGov Profiles+ segment incidence (see unified weight table below), **neutrals are 58% of the national population** — making the neutral penalty even more consequential than the sample distribution suggests. All scenario results use the population-weighted distribution.
 
 **The regression model** decomposes the branding effect into a base penalty (on neutrals) and two interaction terms (differential for positive and negative sentiment):
 
-| Sentiment group | Unbranded | Branded | Effect of branding | Model OR |
-|---|---:|---:|---|---:|
-| Neutral | 14.4% | 7.4% | -7.1pp — the base branding penalty | 0.47 |
-| Positive / Fan | 18.3% | 26.6% | +8.3pp — base penalty is more than offset by positive activation | 1.62 (= 0.47 × 3.42) |
-| Negative | 15.6% | 3.7% | -11.9pp — base penalty is compounded by negative repulsion | 0.21 (= 0.47 × 0.44) |
+| Sentiment group | Unbranded | Branded | Effect of branding |
+|---|---:|---:|---|
+| Neutral | 14.4% | 7.3% | -7.1pp — the base branding penalty |
+| Positive / Fan | 18.3% | 26.5% | +8.2pp — base penalty is more than offset by positive activation |
+| Negative | 15.6% | 3.7% | -11.9pp — base penalty is compounded by negative repulsion |
 
-The neutral OR (0.47) is the base branding effect. The positive total OR (1.62) is the base × the positive interaction term (3.42). The negative total OR (0.21) is the base × the negative interaction term (0.44). Predicted follow rates are evaluated at modal covariates (moderate basketball interest, North-west, age 35–54, male, mid-income); population totals reflect sentiment reweighting rather than full demographic standardization. The key insight: branding has a negative base effect (visible in the neutral group), but this is overridden by strong positive activation among those who feel positively toward ACM.
+The key insight: branding has a negative base effect (visible in the neutral group), but this is overridden by strong positive activation among those who feel positively toward ACM. Predicted follow rates are evaluated at modal covariates (moderate basketball interest, North-west, age 35–54, male, mid-income); population totals reflect sentiment reweighting rather than full demographic standardization.
 
 ### Scenario construction
 
 - **Unbranded**: predicted follow probability under Q5_1 (no ACM connection), weighted by sentiment distribution
-- **Full ACM branding**: current model applied (base OR = 0.47) — neutrals drop from 14.4% to 7.4%, positives rise from 18.3% to 26.6%, negatives drop from 15.6% to 3.7%
-- **Milan-first branding**: the base OR shifts from 0.47 to 0.80 (neutral penalty softened from -7.1pp to -2.5pp). Interaction terms unchanged — the *differential* response of positive and negative sentiment relative to neutral stays the same:
+- **Full ACM branding**: current model applied (neutral follow: 14.4% → 7.3%) — neutrals drop, positives rise, negatives drop further
+- **Milan-first variants**: the neutral base penalty is softened (neutral follow: 14.4% → 10.2% at OR 0.67, or 14.4% → 11.9% at OR 0.80). Positive interaction is attenuated by a factor (100%, 80%, or 60%). Negative interaction is held fixed.
 
-| Sentiment | Unbranded | Full ACM (OR) | Milan-first (OR) |
-|---|---:|---:|---:|
-| Neutral | 14.4% | 7.4% (0.47) | 11.9% (0.80) |
-| Positive / Fan | 18.3% | 26.6% (1.62) | 38.0% (2.74 = 0.80 × 3.42) |
-| Negative | 15.6% | 3.7% (0.21) | 6.1% (0.35 = 0.80 × 0.44) |
+**Important note:** Milan-first branding was not tested in the survey — the survey only tested unbranded (Q5_1) and full ACM branding (Q5_2). The Milan-first scenarios are counterfactuals constructed from the regression model. The specific magnitudes are assumptions, not measured quantities. The value of the exercise is quantifying the sensitivity of the national result to design choices.
 
-**Important note:** Milan-first branding was not tested in the survey — the survey only tested unbranded (Q5_1) and full ACM branding (Q5_2). The Milan-first scenario is a counterfactual constructed from the regression model. We take the model's estimated branding penalty on neutrals and assume it can be softened (from a 7.1pp drop to a 2.5pp drop) through design choices — reduced crest prominence, city-first naming (e.g., "NBA Milan" rather than "AC Milan NBA"), and neutral color treatment. The specific magnitude of the softening is an assumption, not a measured quantity. The value of the exercise is not the exact numbers but the demonstration that branding architecture is a tunable lever with quantifiable national-level consequences.
-
-The rationale for holding the differential responses fixed: Milan-first branding preserves the ACM affiliation signal (so sentiment-driven reactions still fire) while reducing its prominence (so the default neutral reaction is less negative). Name, crest, color scheme, and marketing language are the levers.
+**Assumption: negative interaction held fixed.** We hold the negative interaction constant because softer crest prominence plausibly reduces neutral friction and may attenuate positive activation, but hostile identity reactions are likely triggered by the mere *association* with ACM rather than by its visual prominence. Under any partnership structure, the team's ACM affiliation will be publicly known. Negative-sentiment individuals — who already dislike ACM — will react to the association itself, not to the size of the logo. If this assumption is wrong and softer branding also reduces negative repulsion, the Milan-first scenarios would be *more* favorable than shown (i.e., our estimates are conservative on this dimension).
 
 ---
 
 ## Results
 
-### Sample-weighted (equal segment quotas, as fielded)
+### Detailed scenario breakdowns with CIs
 
-The survey sampled ~400 per segment by design. Weighting by the sample's sentiment distribution (39.3% positive, 46.5% neutral, 14.2% negative):
+| Scenario | Positive (29%) | Neutral (58%) | Negative (13%) | **National** | **95% CI on lift** |
+|---|---:|---:|---:|---:|---:|
+| Unbranded baseline | 18% | 14% | 16% | **15.7%** | — |
+| Full ACM (observed) | 27% (+8pp) | 7% (-7pp) | 4% (-12pp) | **12.4% (-3.3pp)** | **[-5.2, -1.3]** |
+| Milan-first (moderate: neutral drop -4.2pp, 90% pos.) | 32% (+13pp) | 10% (-4pp) | 5% (-11pp) | **15.7% (+0.0pp)** | [-2.1, +2.2] |
+| Milan-first (conservative: neutral drop -2.5pp, 80% pos.) | 33% (+15pp) | 12% (-3pp) | 6% (-10pp) | **17.3% (+1.5pp)** | [-0.6, +3.8] |
+| Milan-first (optimistic: neutral drop -2.5pp, 100% pos.) | 38% (+20pp) | 12% (-3pp) | 6% (-10pp) | **18.7% (+3.0pp)** | **[+0.7, +5.4]** |
 
-| Scenario | Positive (39.3%) | Neutral (46.5%) | Negative (14.2%) | **National** |
-|---|---:|---:|---:|---:|
-| Unbranded baseline | 18.3% | 14.4% | 15.6% | **16.1%** |
-| Full ACM branding | 26.6% (+8.3pp) | 7.4% (-7.1pp) | 3.7% (-11.9pp) | **14.4% (-1.7pp)** |
-| Milan-first branding | 38.0% (+19.7pp) | 11.9% (-2.5pp) | 6.1% (-9.5pp) | **21.4% (+5.2pp)** |
+*Population-weighted using normalized YouGov Profiles+ (see unified weight table). 95% CIs from parametric simulation (10,000 draws from GEE covariance matrix).*
 
-### Population-weighted (YouGov Profiles+ Italy)
+### Reading the results
 
-YouGov Profiles+ estimates the Italian adult population as: ACM fans 9.6%, Inter fans 11.3%, Other Serie A fans 39.3%, Non-fans 34.0%. Within each segment, the survey gives us the ACM sentiment breakdown:
+1. **Full ACM branding is significantly net-negative nationally (-3.3pp, CI [-5.2, -1.3]).** The CI excludes zero. This is not noise.
 
-| Segment | Pop weight | % Positive | % Neutral | % Negative |
-|---|---:|---:|---:|---:|
-| AC Milan Fan | 10.2% | **100.0%** | 0.0% | 0.0% |
-| Inter Milan Fan | 12.0% | 15.5% | 50.5% | 34.0% |
-| Other Serie A Fan | 41.7% | 29.3% | 57.3% | 13.4% |
-| Non-Fan | 36.1% | 13.3% | 77.6% | 9.1% |
+2. **Even moderate softening (neutral drop halved to -4.2pp) with slight attenuation (90%) brings the national result to breakeven (~0.0pp).** The CI [-2.1, +2.2] spans zero — no longer distinguishable from unbranded.
 
-ACM fans are 100% positive by definition (Q1 only offers positive response options for them), but they are only ~10% of Italy. The national neutral figure is driven by Non-Fans (77.6% neutral, 36% of population) and Other Serie A fans (57.3% neutral, 42% of population). Weighting through:
+3. **Milan-first with conservative assumptions (neutral drop -2.5pp, 80% positive retention) shows +1.5pp.** The CI [-0.6, +3.8] just barely spans zero. Directionally positive but not conclusive.
 
-| Sentiment | Sample weight | Population weight | Difference |
-|---|---:|---:|---:|
-| Positive / Fan | 39.3% | **29.1%** | -10.3pp |
-| Neutral | 46.5% | **58.0%** | +11.5pp |
-| Negative | 14.2% | 13.0% | -1.2pp |
+4. **Milan-first with optimistic assumptions (neutral drop -2.5pp, full positive retention) shows +3.0pp.** The CI [+0.7, +5.4] excludes zero. If positive activation is fully preserved, Milan-first is significantly net-positive.
 
-The population sentiment distribution is inferred by combining YouGov Profiles+ segment incidence with within-segment sentiment shares observed in the survey — not from an external national sentiment measure. The sample overrepresents positive-sentiment individuals by ~10pp (because ACM fans were 25% of the sample but only ~10% of Italy). In reality, **neutrals are 58% of the country** — making the neutral penalty even more consequential.
-
-| Scenario | Positive (29.1%) | Neutral (58.0%) | Negative (13.0%) | **National** |
-|---|---:|---:|---:|---:|
-| Unbranded baseline | 18.3% | 14.4% | 15.6% | **15.7%** |
-| Full ACM branding | 26.6% (+8.3pp) | 7.4% (-7.1pp) | 3.7% (-11.9pp) | **12.5% (-3.2pp)** |
-| Milan-first branding | 38.0% (+19.7pp) | 11.9% (-2.5pp) | 6.1% (-9.5pp) | **18.7% (+3.0pp)** |
-
-### Reading the population-weighted table
-
-1. **Full ACM branding is net-negative nationally (-3.2pp).** The +8.3pp gain among positive-sentiment individuals (29.1% of population) is more than offset by the -7.1pp loss among neutrals (58.0%) and the -11.9pp loss among negatives (13.0%). The neutral penalty is the killer — it hits the largest group the hardest, and that group is even larger than the sample suggested.
-
-2. **Milan-first branding flips the national number to +3.0pp.** Softening the neutral penalty (from -7.1pp to -2.5pp) swings the national result by +6.2pp. The positive group lifts +19.7pp instead of +8.3pp — because less base-level friction means more of their positive activation comes through.
-
-3. **Even under Milan-first, negatives still lose (-9.5pp).** The ~13% who feel negatively toward ACM will resist any ACM-affiliated team. This is the known floor — not zero, but bounded and quantified.
-
-4. **The swing from full ACM to Milan-first (+6.2pp nationally) is larger than the swing from unbranded to full ACM (-3.2pp).** Branding architecture choice has a bigger impact on national adoption than the decision to brand at all.
+5. **The breakeven line lies approximately along a diagonal from (neutral drop -4.2pp, 100% positive) through (neutral drop -2.5pp, ~80% positive).** Scenarios above and to the left of this line are net-positive; scenarios below and to the right are net-negative.
 
 ---
 
 ## Caveat
 
-The Milan-first scenario assumes only the base branding penalty changes (neutrals go from -7.1pp to -2.5pp) while the *relative* responses of positive and negative sentiment stay the same. This assumes:
-
-- Softer branding reduces the generic identity penalty for everyone
-- The *differential* response of positive vs negative sentiment remains the same
-- Milan-first branding still carries enough ACM signal to activate sentiment-driven reactions
-
-This is plausible if the branding softens the *prominence* of ACM without eliminating the *association*. It would be optimistic if softer branding also reduces positive-sentiment activation — in that case, the positive lift would be lower and the national number would fall between unbranded and the +3.0pp estimate.
+The Milan-first scenarios assume the neutral penalty can be softened while holding the *relative* differential responses of positive and negative sentiment partially or fully intact. This is plausible if softer branding reduces the *prominence* of ACM identity without eliminating the *association*. It would be optimistic if softer branding also significantly reduces positive-sentiment activation — the sensitivity matrix addresses exactly this concern by showing what happens at 80% and 60% attenuation.
 
 The scenario analysis is not a prediction. It is a structured way to show the NBA that **branding architecture is a tunable lever with quantifiable national-level consequences**, and that the current full-ACM framing is not the only option.
 
 ---
 
-## What This Means for the NBA Conversation
+## Unified Population Weight Table
 
-We are no longer trying to prove that ACM branding is best — the data shows it is net-negative nationally. Instead, the argument is:
+YouGov Profiles+ Italy estimates the share of Italian adults in each segment based on football club support (S5) and supporter identity (Q1). Raw estimates sum to 94.2%. The remaining 5.8% support non-Serie-A clubs or are unclassifiable. We normalize to 100% for population weighting, assuming the excluded 5.8% distributes proportionally.
 
-1. **A partnership with ACM is valuable.** ACM affiliation generates genuine conversion among positive-sentiment individuals (+8.3pp under full branding, potentially higher under Milan-first). No other asset in Italian football delivers this.
+| Segment | Definition | Raw (YouGov) | Normalized |
+|---|---|---:|---:|
+| AC Milan Fan | Supports AC Milan (S5) and identifies as supporter (Q1) | 9.6% | 10.2% |
+| Inter Milan Fan | Supports Inter Milan (S5) and identifies as supporter (Q1) | 11.3% | 12.0% |
+| Other Serie A Fan | Supports another Serie A club (S5) | 39.3% | 41.7% |
+| Non-Fan | Does not support any Serie A club (S5) | 34.0% | 36.1% |
+| **Total** | | **94.2%** | **100.0%** |
 
-2. **The ACM crest design is a tunable lever.** Name, logo prominence, color scheme, and marketing language all move the neutral-sentiment penalty. "AC Milan NBA" maximizes both positive activation and negative salience. "NBA Milan — Powered by AC Milan" reduces negative salience while preserving the affiliation signal.
+**All population-weighted results in this analysis use the normalized weights** (rightmost column). The two sets of numbers (9.6/11.3/39.3/34.0 vs 10.2/12.0/41.7/36.1) that appeared in earlier documents are the same data before and after normalization.
 
-3. **The economic impact depends on sentiment distribution.** Nationally, neutrals are 58% of the Italian adult population (YouGov Profiles+). Any branding architecture that penalizes neutrals by -7pp (as full ACM does) will be net-negative at the national level. The optimization target is clear: **minimize the neutral penalty while preserving the positive-sentiment conversion engine.**
+The national sentiment distribution is derived by combining these segment weights with the within-segment sentiment breakdown observed in the survey:
 
-| Old framing | New framing |
-|---|---|
-| ACM branding helps ACM fans but hurts Inter fans | ACM branding activates positive sentiment and suppresses negative sentiment — across all segments |
-| Club allegiance determines response (fixed) | Emotional sentiment determines response (malleable) |
-| Is the ACM tradeoff worth it? | How do we tune the branding to maximize positive activation while minimizing negative salience? |
-| Full ACM branding is net-negative nationally (-3.2pp) | Milan-first branding is net-positive nationally (+3.0pp) |
+| Sentiment | National weight | Composition |
+|---|---:|---|
+| Positive / Fan | 29.1% | All ACM fans (10.2%) + positive-sentiment Inter/Other SA/Non-Fans |
+| Neutral | 58.0% | Majority of Non-Fans (77.6% neutral) and Other Serie A (57.3% neutral) |
+| Negative | 13.0% | Concentrated in Inter fans (34.0% negative) with smaller shares elsewhere |
 
 ---
 
-*Source: YouGov survey, February 2026 (n=1,625 Italian respondents). Within-subject GEE, binomial family, exchangeable correlation. Controls: basketball baseline, geography, age, gender, income. Q1 sentiment collapsed to 3 levels (positive/fan, neutral, negative). Scenario analysis holds interaction terms fixed and adjusts the base affiliated coefficient. Population weights derived from YouGov Profiles+ Italy segment estimates. Code: `sentiment_regression_analysis.py`.*
+## What This Means for the NBA Conversation
+
+1. **Full ACM branding is significantly net-negative nationally (-3.3pp, CI excludes zero).** This is not noise — it is a real penalty driven by the 58% of the population who feel neutral toward ACM.
+
+2. **Milan-first branding is net-positive if positive activation is substantially retained.** The sensitivity matrix shows the breakeven line: if Milan-first softens the neutral follow-rate drop from -7.1pp to about -2.5pp while retaining at least ~80% of positive activation, the national result turns positive.
+
+3. **The design challenge is specific and testable.** The question is not "should we use ACM branding?" but "can we build a brand architecture that preserves 80%+ of positive activation while softening the neutral penalty?" This is empirically testable through concept testing, naming studies, or A/B brand exposure experiments.
+
+4. **The downside floor is bounded.** Even under full ACM branding (worst case), the 13% who feel negatively toward ACM lose ~12pp in follow intent. Under Milan-first, they still lose ~10pp. These individuals are a known, bounded cost — not a variable risk.
+
+5. **The burden of proof now shifts to brand testing.** The full ACM scenario is significantly negative nationally, while the Milan-first scenario is only significantly positive under high positive-retention assumptions. The critical unknown — whether Milan-first branding retains at least ~80% of positive activation — is empirically testable through concept testing, naming studies, or A/B brand exposure experiments. That is the next step.
+
+---
+
+*Source: YouGov survey, February 2026 (n=1,625 Italian respondents). Within-subject GEE, binomial family, exchangeable correlation. Controls: basketball baseline, geography, age, gender, income. Q1 sentiment collapsed to 3 levels (positive/fan, neutral, negative). 95% CIs: parametric simulation (10,000 draws from GEE covariance matrix) for scenario lifts. Population weights: YouGov Profiles+ Italy, normalized to 100% survey universe. Code: `sensitivity_matrix_analysis.py`.*
